@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://luqianchid.github.io">
-  <title>HEXO blog 的配置经验 | Alan Blog</title>
+  <title>python下连接数据库 | Alan Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.安装nodejs 2.安装hexo 3.hexo init 4.hexo s 5.hexo d">
-<meta name="keywords" content="hexo">
+  <meta name="description" content="1234567891011import pymysqlconn = pymysql.connect(&apos;主机地址&apos;,&apos;user&apos;,&apos;password&apos;,&apos;db&apos;) #创建连接cursor = conn.cursor() #创建游标sql = &quot;&quot; #编写sql语句try:    cursor.execute(sql)#执行语句       conn.commit()#提交    except Exc">
+<meta name="keywords" content="python,mysql">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HEXO blog 的配置经验">
-<meta property="og:url" content="http://luqianchid.github.io/2019/07/26/HEXO-blog-的配置经验">
+<meta property="og:title" content="python下连接数据库">
+<meta property="og:url" content="http://luqianchid.github.io/2019/07/27/python下连接数据库/index.html">
 <meta property="og:site_name" content="Alan Blog">
-<meta property="og:description" content="1.安装nodejs 2.安装hexo 3.hexo init 4.hexo s 5.hexo d">
+<meta property="og:description" content="1234567891011import pymysqlconn = pymysql.connect(&apos;主机地址&apos;,&apos;user&apos;,&apos;password&apos;,&apos;db&apos;) #创建连接cursor = conn.cursor() #创建游标sql = &quot;&quot; #编写sql语句try:    cursor.execute(sql)#执行语句       conn.commit()#提交    except Exc">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-26T16:09:34.436Z">
+<meta property="og:updated_time" content="2019-07-27T07:54:08.285Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HEXO blog 的配置经验">
-<meta name="twitter:description" content="1.安装nodejs 2.安装hexo 3.hexo init 4.hexo s 5.hexo d">
+<meta name="twitter:title" content="python下连接数据库">
+<meta name="twitter:description" content="1234567891011import pymysqlconn = pymysql.connect(&apos;主机地址&apos;,&apos;user&apos;,&apos;password&apos;,&apos;db&apos;) #创建连接cursor = conn.cursor() #创建游标sql = &quot;&quot; #编写sql语句try:    cursor.execute(sql)#执行语句       conn.commit()#提交    except Exc">
   
     <link rel="alternative" href="/atom.xml" title="Alan Blog" type="application/atom+xml">
   
@@ -153,31 +153,29 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-HEXO-blog-的配置经验" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-python下连接数据库" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      HEXO blog 的配置经验
+      python下连接数据库
     </h1>
   
 
         
-        <a href="/2019/07/26/HEXO-blog-的配置经验" class="archive-article-date">
-  	<time datetime="2019-07-26T09:14:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-26</time>
+        <a href="/2019/07/27/python下连接数据库/" class="archive-article-date">
+  	<time datetime="2019-07-27T05:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1.安装nodejs</p>
-<p>2.安装hexo</p>
-<p>3.hexo init</p>
-<p>4.hexo s</p>
-<p>5.hexo d</p>
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"></span><br><span class="line">conn = pymysql.connect(<span class="string">'主机地址'</span>,<span class="string">'user'</span>,<span class="string">'password'</span>,<span class="string">'db'</span>) <span class="comment">#创建连接</span></span><br><span class="line">cursor = conn.cursor() <span class="comment">#创建游标</span></span><br><span class="line">sql = <span class="string">""</span> <span class="comment">#编写sql语句</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    cursor.execute(sql)<span class="comment">#执行语句   </span></span><br><span class="line">    conn.commit()<span class="comment">#提交    </span></span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">	<span class="keyword">raise</span> e    </span><br><span class="line">conn.close() <span class="comment">#关闭连接</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="个人心得"><a href="#个人心得" class="headerlink" title="个人心得"></a>个人心得</h2><p>数据库的连接和关闭最好在函数执行结束后调用，否则循环中每一次都要重新连接关闭数据库，之前做过一次测试，将连接关闭操作提出后，插入数据库几乎都是毫秒级，如果在循环中，每次都在1s以上。</p>
 
       
 
@@ -191,7 +189,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
         		</li>
       		
 		</ul>
@@ -203,7 +205,7 @@
 		<ul class="article-tag-list">
 			
         		<li class="article-tag-list-item">
-        			<a href="/categories/teach/" class="article-tag-list-link color1">teach</a>
+        			<a href="/categories/tools/" class="article-tag-list-link color1">tools</a>
         		</li>
       		
 		</ul>
@@ -258,7 +260,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://luqianchid.github.io/2019/07/26/HEXO-blog-的配置经验" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://luqianchid.github.io/2019/07/27/python下连接数据库/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -272,15 +274,20 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/07/26/python爬取互动百科" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/07/27/如何修改hexo运行端口/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          python爬取互动百科
+          如何修改hexo运行端口
         
       </div>
     </a>
   
+  
+    <a href="/2019/07/27/如何提高github的下载速度/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">如何提高github的下载速度</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -396,19 +403,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">teach</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">python,mysql</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color1">teach</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
             
             <div class="clearfix"></div>
