@@ -5,12 +5,12 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="http://yoursite.com">
+  <link rel="dns-prefetch" href="http://luqianchid.github.io">
   <title>Alan Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="Alan Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://luqianchid.github.io/index.html">
 <meta property="og:site_name" content="Alan Blog">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
@@ -149,6 +149,162 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-python下连接数据库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/27/python下连接数据库">python下连接数据库</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/27/python下连接数据库" class="archive-article-date">
+  	<time datetime="2019-07-27T05:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><code>import pymysql</code><br><code>conn = pymysql.connect(&#39;主机地址&#39;,&#39;user&#39;,&#39;password&#39;,&#39;db&#39;) #创建连接</code><br><code>cursor = conn.cursor() #创建游标</code><br><code>sql = &quot;&quot; #编写sql语句</code><br><code>try:</code><br>    <code>cursor.execute(sql)#执行语句</code><br>    <code>conn.commit()#提交</code><br><code>except Exception as e:</code><br>    <code>raise e</code><br><code>conn.close() #关闭连接</code></p>
+<h2 id="个人心得"><a href="#个人心得" class="headerlink" title="个人心得"></a>个人心得</h2><p>数据库的连接和关闭最好在函数执行结束后调用，否则循环中每一次都要重新连接关闭数据库，之前做过一次测试，将连接关闭操作提出后，插入数据库几乎都是毫秒级，如果在循环中，每次都在1s以上。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">python,mysql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/27/python下连接数据库">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-如何提高github的下载速度" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/27/如何提高github的下载速度">如何提高github的下载速度</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/27/如何提高github的下载速度" class="archive-article-date">
+  	<time datetime="2019-07-27T05:32:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><p>本地配置好git</p>
+<p>拥有github账号，并设置好ssh密钥</p>
+<p>使用github登陆码云，设置好ssh密钥（两者一样）</p>
+<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><p>1.在github上找到自己需要的仓库，fork进自己的账号内</p>
+<p>2.在码云上新建仓库，点击页面上方的加号按钮，选择从github导入</p>
+<p>3.初次导入会验证，成功后会看到GitHub的仓库列表</p>
+<p>4.选择自己需要导入的仓库，导入成功过后刷新码云</p>
+<p>5.选择clone或下载，复制ssh地址。在本地找好文件夹git bash运行克隆命令即可。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">teach</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/27/如何提高github的下载速度">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-python爬取互动百科" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -408,11 +564,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">python,mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color1">teach</a>
               </li>
             
             <div class="clearfix"></div>

@@ -5,14 +5,14 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="http://yoursite.com">
+  <link rel="dns-prefetch" href="http://luqianchid.github.io">
   <title>python爬取互动百科 | Alan Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="python 爬取互动百科词条创建mysql连接分析页面结构编写代码">
 <meta name="keywords" content="python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python爬取互动百科">
-<meta property="og:url" content="http://yoursite.com/2019/07/26/python爬取互动百科">
+<meta property="og:url" content="http://luqianchid.github.io/2019/07/26/python爬取互动百科">
 <meta property="og:site_name" content="Alan Blog">
 <meta property="og:description" content="python 爬取互动百科词条创建mysql连接分析页面结构编写代码">
 <meta property="og:locale" content="default">
@@ -253,7 +253,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/26/python爬取互动百科" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://luqianchid.github.io/2019/07/26/python爬取互动百科" alt="微信分享二维码">
     </div>
 </div>
 
@@ -266,6 +266,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/07/27/如何提高github的下载速度" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          如何提高github的下载速度
+        
+      </div>
+    </a>
   
   
     <a href="/2019/07/26/HEXO-blog-的配置经验" id="article-nav-older" class="article-nav-link-wrap">
@@ -387,11 +396,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">python,mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color1">teach</a>
               </li>
             
             <div class="clearfix"></div>
