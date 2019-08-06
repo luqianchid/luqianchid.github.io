@@ -189,7 +189,7 @@
 <h1 id="创建模块"><a href="#创建模块" class="headerlink" title="创建模块"></a>创建模块</h1><p>1.python manage.py startapp firstapp</p>
 <p> cd firstapp</p>
 <p>把myapp下的urls.py拷贝过来.</p>
-<p>urls是路由，views是视图</p>
+<p>urls是路由，views是视图，models是关于数据库的表模型</p>
 <p>在上一级的settings.py中配置项目</p>
 <p>在INSTALLED_APPS中注册你的app： ‘firstapp’</p>
 <p>时区修改一下 TIME_ZONE = ‘Asia/Shanghai’</p>
@@ -215,6 +215,7 @@
 <p>注释掉。</p>
 <p>operations.py：</p>
 <p>146行的 decode改为encode。</p>
+<p>2.如果出现django.db.utils.ProgrammingError: (1064, “You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ‘(6) NOT NULL)’ at line 1”)，检查一下你的mysql版本。5.6以上应该不会出现这种问题了，我由于是5.5遇到这个报错。</p>
 
       
 
@@ -239,68 +240,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/08/06/初始化一个django项目/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-如何修改hexo运行端口" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/27/如何修改hexo运行端口/">如何修改hexo运行端口</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/27/如何修改hexo运行端口/" class="archive-article-date">
-  	<time datetime="2019-07-27T07:24:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/27/如何修改hexo运行端口/">展开全文 >></a>
         </p>
       
 
@@ -502,179 +441,6 @@
 
 
   
-    <article id="post-python爬取互动百科" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/26/python爬取互动百科/">python爬取互动百科</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/26/python爬取互动百科/" class="archive-article-date">
-  	<time datetime="2019-07-26T15:51:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="python-爬取互动百科词条"><a href="#python-爬取互动百科词条" class="headerlink" title="python 爬取互动百科词条"></a>python 爬取互动百科词条</h1><h2 id="创建mysql连接"><a href="#创建mysql连接" class="headerlink" title="创建mysql连接"></a>创建mysql连接</h2><h2 id="分析页面结构"><a href="#分析页面结构" class="headerlink" title="分析页面结构"></a>分析页面结构</h2><h2 id="编写代码"><a href="#编写代码" class="headerlink" title="编写代码"></a>编写代码</h2>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			
-        		<li class="article-tag-list-item">
-        			<a href="/categories/teach/" class="article-tag-list-link color1">teach</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/26/python爬取互动百科/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-HEXO-blog-的配置经验" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/26/HEXO-blog-的配置经验/">HEXO blog 的配置经验</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/26/HEXO-blog-的配置经验/" class="archive-article-date">
-  	<time datetime="2019-07-26T09:14:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1.安装nodejs</p>
-<p>2.安装hexo</p>
-<p>3.hexo init</p>
-<p>4.hexo s</p>
-<p>5.hexo d</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			
-        		<li class="article-tag-list-item">
-        			<a href="/categories/teach/" class="article-tag-list-link color1">teach</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/26/HEXO-blog-的配置经验/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
 
 
@@ -764,19 +530,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">teach</a>
+                <a href="javascript:void(0)" class="js-tag color2">django</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">django</a>
+                <a href="javascript:void(0)" class="js-tag color1">teach</a>
               </li>
             
             <div class="clearfix"></div>

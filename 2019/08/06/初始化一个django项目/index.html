@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Alan Blog">
 <meta property="og:description" content="准备工作1.保证你的mysql本版本大于等于5.6 django2.1在18年12月之后不在支持5.5，仅支持5.6或更高 2.最好能科学上网 有一些依赖包如果没有翻墙工具会下载失败，为了不麻烦，准备个梯子吧。 开始指定版本下载 2.2是长期支持版本 pip install django==2.2  cd D:/ mkdir django_project #之后创建的项目都扔在这个文件夹下面了 c">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-06T14:15:37.499Z">
+<meta property="og:updated_time" content="2019-08-06T14:44:08.984Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初始化一个django项目">
 <meta name="twitter:description" content="准备工作1.保证你的mysql本版本大于等于5.6 django2.1在18年12月之后不在支持5.5，仅支持5.6或更高 2.最好能科学上网 有一些依赖包如果没有翻墙工具会下载失败，为了不麻烦，准备个梯子吧。 开始指定版本下载 2.2是长期支持版本 pip install django==2.2  cd D:/ mkdir django_project #之后创建的项目都扔在这个文件夹下面了 c">
@@ -192,7 +192,7 @@
 <h1 id="创建模块"><a href="#创建模块" class="headerlink" title="创建模块"></a>创建模块</h1><p>1.python manage.py startapp firstapp</p>
 <p> cd firstapp</p>
 <p>把myapp下的urls.py拷贝过来.</p>
-<p>urls是路由，views是视图</p>
+<p>urls是路由，views是视图，models是关于数据库的表模型</p>
 <p>在上一级的settings.py中配置项目</p>
 <p>在INSTALLED_APPS中注册你的app： ‘firstapp’</p>
 <p>时区修改一下 TIME_ZONE = ‘Asia/Shanghai’</p>
@@ -218,6 +218,7 @@
 <p>注释掉。</p>
 <p>operations.py：</p>
 <p>146行的 decode改为encode。</p>
+<p>2.如果出现django.db.utils.ProgrammingError: (1064, “You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ‘(6) NOT NULL)’ at line 1”)，检查一下你的mysql版本。5.6以上应该不会出现这种问题了，我由于是5.5遇到这个报错。</p>
 
       
 
@@ -302,8 +303,8 @@
 <nav id="article-nav">
   
   
-    <a href="/2019/07/27/如何修改hexo运行端口/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">如何修改hexo运行端口</div>
+    <a href="/2019/07/27/python下连接数据库/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python下连接数据库</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -425,19 +426,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">teach</a>
+                <a href="javascript:void(0)" class="js-tag color2">django</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">django</a>
+                <a href="javascript:void(0)" class="js-tag color1">teach</a>
               </li>
             
             <div class="clearfix"></div>
