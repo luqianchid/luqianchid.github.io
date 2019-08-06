@@ -150,6 +150,124 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-初始化一个django项目" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/06/初始化一个django项目/">初始化一个django项目</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/06/初始化一个django项目/" class="archive-article-date">
+  	<time datetime="2019-08-06T13:44:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p>1.保证你的mysql本版本大于等于5.6</p>
+<p>django2.1在18年12月之后不在支持5.5，仅支持5.6或更高</p>
+<p>2.最好能科学上网</p>
+<p>有一些依赖包如果没有翻墙工具会下载失败，为了不麻烦，准备个梯子吧。</p>
+<h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><p>指定版本下载 2.2是长期支持版本</p>
+<p>pip install django==2.2 </p>
+<p>cd D:/</p>
+<p>mkdir django_project #之后创建的项目都扔在这个文件夹下面了</p>
+<p>cd django_project</p>
+<p>创建项目</p>
+<p>django-admin startproject  myapp</p>
+<p>cd myapp</p>
+<p>运行</p>
+<p>python manage.py runserver</p>
+<p>一般在127.0.0.1:8000端口</p>
+<p>看到小火箭就代表床架成功了</p>
+<h1 id="创建模块"><a href="#创建模块" class="headerlink" title="创建模块"></a>创建模块</h1><p>1.python manage.py startapp firstapp</p>
+<p> cd firstapp</p>
+<p>把myapp下的urls.py拷贝过来.</p>
+<p>urls是路由，views是视图</p>
+<p>在上一级的settings.py中配置项目</p>
+<p>在INSTALLED_APPS中注册你的app： ‘firstapp’</p>
+<p>时区修改一下 TIME_ZONE = ‘Asia/Shanghai’</p>
+<p>关于数据库这里，使用mysql配置如下</p>
+<p>再此之前，在myapp下的<strong>init</strong>.py中加入</p>
+<p>import pymysql # 没有的话pip install pymysql安装即可</p>
+<p>pymysql.install_as_MySQLdb()</p>
+<p>DATABASES = {</p>
+<p>​    ‘default’: {</p>
+<p>​        ‘ENGINE’: ‘django.db.backends.mysql’,</p>
+<p>​        ‘NAME’: ‘myblog’, # 数据库名</p>
+<p>​        ‘HOST’: ‘127.0.0.1’,  # 主机</p>
+<p>​        ‘USER’:’root’, # 用户名</p>
+<p>​        ‘PASSWORD’:’root’, # 密码</p>
+<p>​        ‘PORT’: ‘3306’ # 端口</p>
+<p>​    }</p>
+<p>}</p>
+<h1 id="一些可能遇到的问题"><a href="#一些可能遇到的问题" class="headerlink" title="一些可能遇到的问题"></a>一些可能遇到的问题</h1><p>1.django.core.exceptions.ImproperlyConfigured: mysqlclient 1.3.3 or newer is required; you have 0.9 None</p>
+<p>这个问题我试着更新了一下mysqlclient，但是没能解决，有一个办法是进入python的安装目录</p>
+<p>选择Lib-&gt;site-packages-&gt;django-&gt;db-&gt;backends-&gt;mysql修改两个文件：base.py,将</p>
+<p>if version &lt; (1, 3, 13):</p>
+<p>​     raise ImproperlyConfigured(‘mysqlclient 1.3.13 or newer is required; you have %s.’ % Database.<strong>version</strong>)</p>
+<p>注释掉。</p>
+<p>operations.py：</p>
+<p>146行的 decode改为encode。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">django</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/06/初始化一个django项目/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-如何修改hexo运行端口" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -642,11 +760,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -654,7 +776,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color2">django</a>
               </li>
             
             <div class="clearfix"></div>
@@ -705,7 +827,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">联系我[luqianchid@gmail.com,luqianchid@163.com]</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">联系我&lt;br/&gt;luqianchid@gmail.com&lt;br/&gt;luqianchid@163.com</div>
   	  	
     	</section>
     
