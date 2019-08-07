@@ -150,6 +150,124 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-mysql5-5升级5-6遇到的问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/07/mysql5-5升级5-6遇到的问题/">mysql5.5升级5.6遇到的问题</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/07/mysql5-5升级5-6遇到的问题/" class="archive-article-date">
+  	<time datetime="2019-08-07T00:23:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>由于django不在支持mysql5.5导致系统在进行表迁移操作时一直会报错</p>
+<p><code>django.db.utils.ProgrammingError: (1064, &quot;You have an error in your SQL synt</code></p>
+<p>查了一下原因</p>
+<p><img src="D:%5CBlog%5Csource_posts%5Cassets%5C1565137946221.png" alt="1565137946221"></p>
+<p>行吧，开始升级mysql吧。</p>
+<p>由于我使用的是phpstudy的集成环境，因此升级mysql遇到了一些问题。</p>
+<h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><p>1.下载mysql-5.6的win-64.zip压缩包，这里不建议去官网下载，因为实在是<strong>太慢了</strong></p>
+<p>我们去国内镜像网站下载</p>
+<p><a href="http://mirrors.ustc.edu.cn/mysql-ftp/Downloads/MySQL-5.6/" target="_blank" rel="noopener">http://mirrors.ustc.edu.cn/mysql-ftp/Downloads/MySQL-5.6/</a></p>
+<p>按照你的系统选择安装包，这里来我选择的是mysql-5.6.45-winx64.zip</p>
+<p>2.下载完成后解压，找到你的D:\PHPStudy\PHPTutorial/MySQL目录</p>
+<p>备份一下这个文件夹，然后清空他的内容。将你解压后的内容复制进来。</p>
+<p>这是mysql文件夹下面的目录结构</p>
+<p><img src="D:%5CBlog%5Csource_posts%5Cassets%5C1565138460638.png" alt="1565138460638"></p>
+<p>把你备份的mysql文件夹下面的my.ini的内容复制给my-default.ini.默认引擎是MyISAM，同时添加这两段</p>
+<p>skip-grant-tables = 1 #跳过权限验证<br>log-error = 你的PHPStudy\PHPTutorial路径/MySQL/data/error.log</p>
+<p>3.在系统环境变量中将MySQL/bin添加进去。</p>
+<p><img src="D:%5CBlog%5Csource_posts%5Cassets%5C1565138592065.png" alt="1565138592065"></p>
+<p>4.管理员身份运行cmd</p>
+<p>初始化mysql</p>
+<p>mysqld –initialize –user=mysql</p>
+<p>mysqld -install</p>
+<p>net start mysql</p>
+<p>在这一环节你可能会遇到几个问题</p>
+<p>（1）缺少msvcp*.dll导致程序启动失败，安装不上或者出现 0xc000007b 错误。</p>
+<p>这是由于你的计算机不是专业版的，系统运行库不全，解决方法，安装vc运行库</p>
+<p>链接：<a href="https://pan.baidu.com/s/1WHT-n1ynwpp1xr2-CWN0Yg" target="_blank" rel="noopener">https://pan.baidu.com/s/1WHT-n1ynwpp1xr2-CWN0Yg</a><br>提取码：qmwy<br>下载完成解压安装对应系统版本的可执行文件。</p>
+<p>（2）phpstudy无法启动mysql但是命令行运行net start mysql可以</p>
+<p>执行sc delete mysql</p>
+<p>再去运行phpstudy即可。</p>
+<p>5.由于我们在my-default.ini中跳过了登陆验证，因此初次使用时无需密码</p>
+<p>mysql -u root -p</p>
+<p>回车</p>
+<p>即可进入mysql</p>
+<p>接下来我们创建数据库密码</p>
+<p>use mysql;</p>
+<p>update mysql.user set password=password(“123456”) where user=”root”;</p>
+<p>把my-default.ini中跳过验证的那句代码删除。</p>
+<p>保存</p>
+<p>flush privileges;</p>
+<p>quit;</p>
+<p>关闭cmd。重启phpstudy。</p>
+<p>再次测试mysql就需要输入密码了。</p>
+<p>现在再去django执行表迁移操作就不会报错了</p>
+<h2 id="ps"><a href="#ps" class="headerlink" title="ps"></a>ps</h2><p>如果你出现了同样的问题，用我的办法却不能解决的话，多用搜索引擎~</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/07/mysql5-5升级5-6遇到的问题/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-初始化一个django项目" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -305,11 +423,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		
 		</ul>
@@ -526,19 +644,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">django</a>
+                <a href="javascript:void(0)" class="js-tag color1">teach</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">teach</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">django</a>
               </li>
             
             <div class="clearfix"></div>
