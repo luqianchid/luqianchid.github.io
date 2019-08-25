@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Alan Blog">
 <meta property="og:description" content="引言最近在尝试做一个词云小项目，项目构成非常简单，一个提交模块，一个列表展示模块。结构很简单，但是对于 咸鱼来说还是毫无防备的踩进了坑里。== 跨域问题引入axios后设置 Axios.defaults.withCredentials = true Axios.defaults.headers[‘Content-Type’] = ‘application/x-www-form-urlencoded">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-25T12:02:17.928Z">
+<meta property="og:updated_time" content="2019-08-25T12:08:33.683Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue使用心得1--词云小项目中踩到的坑">
 <meta name="twitter:description" content="引言最近在尝试做一个词云小项目，项目构成非常简单，一个提交模块，一个列表展示模块。结构很简单，但是对于 咸鱼来说还是毫无防备的踩进了坑里。== 跨域问题引入axios后设置 Axios.defaults.withCredentials = true Axios.defaults.headers[‘Content-Type’] = ‘application/x-www-form-urlencoded">
@@ -226,9 +226,11 @@
 </ul>
 <h2 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h2><p>如何一起提交上传的文件以及表单元素？如果是原生html很好处理，但是既然用了框架，总不能没有办法解决这个问题吧？此时就需要用到formData 了，</p>
 <p>data （）  {</p>
-<p>​    …</p>
-<p>​    formData : new FormData(),</p>
-<p>​    …</p>
+<p>​    return {</p>
+<p>​        …</p>
+<p>​        formData : new FormData(),</p>
+<p>​        …    </p>
+<p>​    }</p>
 <p>}</p>
 <p>使用el-upload的组件before-upload属性，绑定fafa</p>
 <p>:before-upload=”beforeUpload”</p>

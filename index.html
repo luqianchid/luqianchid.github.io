@@ -223,9 +223,11 @@
 </ul>
 <h2 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h2><p>如何一起提交上传的文件以及表单元素？如果是原生html很好处理，但是既然用了框架，总不能没有办法解决这个问题吧？此时就需要用到formData 了，</p>
 <p>data （）  {</p>
-<p>​    …</p>
-<p>​    formData : new FormData(),</p>
-<p>​    …</p>
+<p>​    return {</p>
+<p>​        …</p>
+<p>​        formData : new FormData(),</p>
+<p>​        …    </p>
+<p>​    }</p>
 <p>}</p>
 <p>使用el-upload的组件before-upload属性，绑定fafa</p>
 <p>:before-upload=”beforeUpload”</p>
