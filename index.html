@@ -150,6 +150,149 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Vue使用心得1-词云小项目中踩到的坑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/25/Vue使用心得1-词云小项目中踩到的坑/">Vue使用心得1--词云小项目中踩到的坑</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/25/Vue使用心得1-词云小项目中踩到的坑/" class="archive-article-date">
+  	<time datetime="2019-08-25T10:50:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>最近在尝试做一个词云小项目，项目构成非常简单，一个提交模块，一个列表展示模块。结构很简单，但是对于 咸鱼来说还是毫无防备的踩进了坑里。==</p>
+<h2 id="跨域问题"><a href="#跨域问题" class="headerlink" title="跨域问题"></a>跨域问题</h2><p>引入axios后设置</p>
+<p>Axios.defaults.withCredentials = true</p>
+<p>Axios.defaults.headers[‘Content-Type’] = ‘application/x-www-form-urlencoded’</p>
+<p>默认的header是application/json。注意这是前端方面的，后端的跨域设置要根据框架进行调整。</p>
+<p>然后安装qs</p>
+<p>cnpm install qs –save</p>
+<p>在进行post请求时对data对象进行处理  qs.stringify(data).</p>
+<p>如果觉得这种方式每次都要引入比较麻烦，就对axios进行一次封装，设置拦截器，对post请求进行拦截，处理data格式。</p>
+<p>axios.interceptors.request.use(</p>
+<p>  (config) =&gt; {</p>
+<p>​    if (config.method === ‘post’) {</p>
+<p>​      config.data = qs.stringify(config.data)</p>
+<p>​    }</p>
+<p>​    return config</p>
+<p>  },</p>
+<p>  (error) =&gt; {</p>
+<p>​    return Promise.reject(error)</p>
+<p>  }</p>
+<p>)</p>
+<h2 id="非父子组件（兄弟组件传值）"><a href="#非父子组件（兄弟组件传值）" class="headerlink" title="非父子组件（兄弟组件传值）"></a>非父子组件（兄弟组件传值）</h2><p>设A，B两个组件之间要进行通信，A完成某个动作后触发B中的数据更新。</p>
+<p>新建一个Bus.js</p>
+<p>import Vue from ‘vue’</p>
+<p>export default new Vue()</p>
+<p>在AB组件中分别引入Bus.js</p>
+<p>import Bus from ‘youpath/Bus’</p>
+<p>例如我需要在A组件中提交完数据后触发B组件中列表刷新</p>
+<p>在A中的submit方法中写入</p>
+<p>Bus.$emit(‘initList’, value) 这个value可以是你想传递给B的任何值</p>
+<p>在B中的mounted生命周期中写入：</p>
+<p>Bus.$on(‘initList’, （val) =&gt; {</p>
+<p>​    this.refresh() // 我的刷新列表命令</p>
+<p>}</p>
+<p>beforeDestroy () {</p>
+<p>​    Bus.$off(‘refresh’) // 移除事件监听</p>
+<p>  }</p>
+<p>emit,on,off介绍</p>
+<p>1、vm.$on( event, callback )</p>
+<p>监听当前实例上的自定义事件。事件可以由vm.$emit触发。回调函数会接收所有传入事件触发函数的额外参数。</p>
+<p>2、vm.$emit( event, […args] )</p>
+<p>触发当前实例上的事件。附加参数都会传给监听器回调，如果没有参数，形式为vm.$emit(event)</p>
+<p>3、vm.$off( [event, callback] )</p>
+<p>移除自定义事件监听器。</p>
+<ul>
+<li><p>如果没有提供参数，则移除所有的事件监听器；</p>
+</li>
+<li><p>如果只提供了事件，则移除该事件所有的监听器；</p>
+</li>
+<li><p>如果同时提供了事件与回调，则只移除这个回调的监听器。</p>
+</li>
+</ul>
+<h2 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h2><p>如何一起提交上传的文件以及表单元素？如果是原生html很好处理，但是既然用了框架，总不能没有办法解决这个问题吧？此时就需要用到formData 了，</p>
+<p>data （）  {</p>
+<p>​    …</p>
+<p>​    formData : new FormData(),</p>
+<p>​    …</p>
+<p>}</p>
+<p>使用el-upload的组件before-upload属性，绑定fafa</p>
+<p>:before-upload=”beforeUpload”</p>
+<p>在methods 中定义beforeUpload方法</p>
+<p>beforeUpload （file） {</p>
+<p>​    // 文件类型检测</p>
+<p>​    ….</p>
+<p>​    // 其他处理</p>
+<p>​    …</p>
+<p>​    this.formData.set(‘img’, file) </p>
+<p>// 网上许多教程使用的是append,但是这会导致一个问题，</p>
+<p>// 她不会覆盖之前的append,所以后续你的formData会越来越大。</p>
+<p>​    return false  // 阻止默认提交</p>
+<p>}</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/25/Vue使用心得1-词云小项目中踩到的坑/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-mysql5-5升级5-6遇到的问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -644,6 +787,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
@@ -652,11 +799,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">django</a>
+                <a href="javascript:void(0)" class="js-tag color1">teach</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">teach</a>
+                <a href="javascript:void(0)" class="js-tag color2">django</a>
               </li>
             
             <div class="clearfix"></div>
