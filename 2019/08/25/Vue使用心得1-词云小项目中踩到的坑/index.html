@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://luqianchid.github.io">
   <title>Vue使用心得1--词云小项目中踩到的坑 | Alan Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="引言最近在尝试做一个词云小项目，项目构成非常简单，一个提交模块，一个列表展示模块。结构很简单，但是对于 咸鱼来说还是毫无防备的踩进了坑里。== 跨域问题引入axios后设置 Axios.defaults.withCredentials = true Axios.defaults.headers[‘Content-Type’] = ‘application/x-www-form-urlencoded">
+  <meta name="description" content="引言最近在尝试做一个词云小项目，项目构成非常简单，一个提交模块，一个列表展示模块。结构很简单，但是对于 咸鱼来说还是毫无防备的踩进了坑里。== 跨域问题引入axios后设置 123Axios.defaults.withCredentials = trueAxios.defaults.headers[&amp;apos;Content-Type&amp;apos;] = &amp;apos;application/x-ww">
 <meta name="keywords" content="Vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue使用心得1--词云小项目中踩到的坑">
 <meta property="og:url" content="http://luqianchid.github.io/2019/08/25/Vue使用心得1-词云小项目中踩到的坑/index.html">
 <meta property="og:site_name" content="Alan Blog">
-<meta property="og:description" content="引言最近在尝试做一个词云小项目，项目构成非常简单，一个提交模块，一个列表展示模块。结构很简单，但是对于 咸鱼来说还是毫无防备的踩进了坑里。== 跨域问题引入axios后设置 Axios.defaults.withCredentials = true Axios.defaults.headers[‘Content-Type’] = ‘application/x-www-form-urlencoded">
+<meta property="og:description" content="引言最近在尝试做一个词云小项目，项目构成非常简单，一个提交模块，一个列表展示模块。结构很简单，但是对于 咸鱼来说还是毫无防备的踩进了坑里。== 跨域问题引入axios后设置 123Axios.defaults.withCredentials = trueAxios.defaults.headers[&amp;apos;Content-Type&amp;apos;] = &amp;apos;application/x-ww">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-25T12:08:33.683Z">
+<meta property="og:updated_time" content="2019-08-25T12:20:11.770Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue使用心得1--词云小项目中踩到的坑">
-<meta name="twitter:description" content="引言最近在尝试做一个词云小项目，项目构成非常简单，一个提交模块，一个列表展示模块。结构很简单，但是对于 咸鱼来说还是毫无防备的踩进了坑里。== 跨域问题引入axios后设置 Axios.defaults.withCredentials = true Axios.defaults.headers[‘Content-Type’] = ‘application/x-www-form-urlencoded">
+<meta name="twitter:description" content="引言最近在尝试做一个词云小项目，项目构成非常简单，一个提交模块，一个列表展示模块。结构很简单，但是对于 咸鱼来说还是毫无防备的踩进了坑里。== 跨域问题引入axios后设置 123Axios.defaults.withCredentials = trueAxios.defaults.headers[&amp;apos;Content-Type&amp;apos;] = &amp;apos;application/x-ww">
   
     <link rel="alternative" href="/atom.xml" title="Alan Blog" type="application/atom+xml">
   
@@ -166,7 +166,7 @@
 
         
         <a href="/2019/08/25/Vue使用心得1-词云小项目中踩到的坑/" class="archive-article-date">
-  	<time datetime="2019-08-25T10:50:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-25</time>
+  	<time datetime="2019-08-25T10:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-25</time>
 </a>
         
       </header>
@@ -175,40 +175,30 @@
       
         <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>最近在尝试做一个词云小项目，项目构成非常简单，一个提交模块，一个列表展示模块。结构很简单，但是对于 咸鱼来说还是毫无防备的踩进了坑里。==</p>
 <h2 id="跨域问题"><a href="#跨域问题" class="headerlink" title="跨域问题"></a>跨域问题</h2><p>引入axios后设置</p>
-<p>Axios.defaults.withCredentials = true</p>
-<p>Axios.defaults.headers[‘Content-Type’] = ‘application/x-www-form-urlencoded’</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Axios.defaults.withCredentials = true</span><br><span class="line"></span><br><span class="line">Axios.defaults.headers[&apos;Content-Type&apos;] = &apos;application/x-www-form-urlencoded&apos;</span><br></pre></td></tr></table></figure>
+
 <p>默认的header是application/json。注意这是前端方面的，后端的跨域设置要根据框架进行调整。</p>
 <p>然后安装qs</p>
-<p>cnpm install qs –save</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install qs --save</span><br></pre></td></tr></table></figure>
+
 <p>在进行post请求时对data对象进行处理  qs.stringify(data).</p>
 <p>如果觉得这种方式每次都要引入比较麻烦，就对axios进行一次封装，设置拦截器，对post请求进行拦截，处理data格式。</p>
-<p>axios.interceptors.request.use(</p>
-<p>  (config) =&gt; {</p>
-<p>​    if (config.method === ‘post’) {</p>
-<p>​      config.data = qs.stringify(config.data)</p>
-<p>​    }</p>
-<p>​    return config</p>
-<p>  },</p>
-<p>  (error) =&gt; {</p>
-<p>​    return Promise.reject(error)</p>
-<p>  }</p>
-<p>)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">axios.interceptors.request.use(</span><br><span class="line"></span><br><span class="line">  (config) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">​    if (config.method === &apos;post&apos;) &#123;</span><br><span class="line"></span><br><span class="line">​      config.data = qs.stringify(config.data)</span><br><span class="line"></span><br><span class="line">​    &#125;</span><br><span class="line"></span><br><span class="line">​    return config</span><br><span class="line"></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  (error) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">​    return Promise.reject(error)</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
 <h2 id="非父子组件（兄弟组件传值）"><a href="#非父子组件（兄弟组件传值）" class="headerlink" title="非父子组件（兄弟组件传值）"></a>非父子组件（兄弟组件传值）</h2><p>设A，B两个组件之间要进行通信，A完成某个动作后触发B中的数据更新。</p>
 <p>新建一个Bus.js</p>
-<p>import Vue from ‘vue’</p>
-<p>export default new Vue()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &apos;vue&apos;</span><br><span class="line"></span><br><span class="line">export default new Vue()</span><br></pre></td></tr></table></figure>
+
 <p>在AB组件中分别引入Bus.js</p>
-<p>import Bus from ‘youpath/Bus’</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import Bus from &apos;youpath/Bus&apos;</span><br></pre></td></tr></table></figure>
+
 <p>例如我需要在A组件中提交完数据后触发B组件中列表刷新</p>
 <p>在A中的submit方法中写入</p>
-<p>Bus.$emit(‘initList’, value) 这个value可以是你想传递给B的任何值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Bus.$emit(&apos;initList&apos;, value) // 这个value可以是你想传递给B的任何值</span><br></pre></td></tr></table></figure>
+
 <p>在B中的mounted生命周期中写入：</p>
-<p>Bus.$on(‘initList’, （val) =&gt; {</p>
-<p>​    this.refresh() // 我的刷新列表命令</p>
-<p>}</p>
-<p>beforeDestroy () {</p>
-<p>​    Bus.$off(‘refresh’) // 移除事件监听</p>
-<p>  }</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Bus.$on(&apos;initList&apos;, （val) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">​	this.refresh() // 我的刷新列表命令</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">beforeDestroy () &#123;</span><br><span class="line"></span><br><span class="line">​    Bus.$off(&apos;refresh&apos;) // 移除事件监听</span><br><span class="line"></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
 <p>emit,on,off介绍</p>
 <p>1、vm.$on( event, callback )</p>
 <p>监听当前实例上的自定义事件。事件可以由vm.$emit触发。回调函数会接收所有传入事件触发函数的额外参数。</p>
@@ -225,27 +215,12 @@
 </li>
 </ul>
 <h2 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h2><p>如何一起提交上传的文件以及表单元素？如果是原生html很好处理，但是既然用了框架，总不能没有办法解决这个问题吧？此时就需要用到formData 了，</p>
-<p>data （）  {</p>
-<p>​    return {</p>
-<p>​        …</p>
-<p>​        formData : new FormData(),</p>
-<p>​        …    </p>
-<p>​    }</p>
-<p>}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">data （）  &#123;</span><br><span class="line"></span><br><span class="line">​	return &#123;</span><br><span class="line"></span><br><span class="line">​		...</span><br><span class="line"></span><br><span class="line">​		formData : new FormData(),</span><br><span class="line"></span><br><span class="line">​		...	</span><br><span class="line"></span><br><span class="line">​	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>使用el-upload的组件before-upload属性，绑定fafa</p>
 <p>:before-upload=”beforeUpload”</p>
 <p>在methods 中定义beforeUpload方法</p>
-<p>beforeUpload （file） {</p>
-<p>​    // 文件类型检测</p>
-<p>​    ….</p>
-<p>​    // 其他处理</p>
-<p>​    …</p>
-<p>​    this.formData.set(‘img’, file) </p>
-<p>// 网上许多教程使用的是append,但是这会导致一个问题，</p>
-<p>// 她不会覆盖之前的append,所以后续你的formData会越来越大。</p>
-<p>​    return false  // 阻止默认提交</p>
-<p>}</p>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">beforeUpload （file） &#123;</span><br><span class="line"></span><br><span class="line">​	// 文件类型检测</span><br><span class="line"></span><br><span class="line">​	....</span><br><span class="line"></span><br><span class="line">​	// 其他处理</span><br><span class="line"></span><br><span class="line">​	...</span><br><span class="line"></span><br><span class="line">​	this.formData.set(&apos;img&apos;, file) </span><br><span class="line"></span><br><span class="line">// 网上许多教程使用的是append,但是这会导致一个问题，</span><br><span class="line">// 她不会覆盖之前的append,所以后续你的formData会越来越大。</span><br><span class="line">// 另外，如果console.log(formData)的话会发现他是个空的，但是没有问题，</span><br><span class="line">// 在发送请求时在network中检查url，你会发现它还在。</span><br><span class="line"></span><br><span class="line">​	return false  // 阻止默认提交</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
       
