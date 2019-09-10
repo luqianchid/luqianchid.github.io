@@ -6,16 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://luqianchid.github.io">
-  <title>Tags | Alan Blog</title>
+  <title>9-10简单算法题目 | Alan Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Tags">
-<meta property="og:url" content="http://luqianchid.github.io/Tags/index-2.html">
+  <meta name="description" content="removeElemnet去除列表中给定的元素，并且返回新的列表的长度 12345678910def removeElement(nums, val):  #计数   while val in nums:     nums.remove(val)   i = len(nums)   return i, nums  if __name__ == &amp;quot;__main__&amp;quot;:   a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="9-10简单算法题目">
+<meta property="og:url" content="http://luqianchid.github.io/2019/09/10/-10简单算法题目/index.html">
 <meta property="og:site_name" content="Alan Blog">
+<meta property="og:description" content="removeElemnet去除列表中给定的元素，并且返回新的列表的长度 12345678910def removeElement(nums, val):  #计数   while val in nums:     nums.remove(val)   i = len(nums)   return i, nums  if __name__ == &amp;quot;__main__&amp;quot;:   a">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-26T10:43:21.614Z">
+<meta property="og:updated_time" content="2019-09-10T09:55:46.536Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tags">
+<meta name="twitter:title" content="9-10简单算法题目">
+<meta name="twitter:description" content="removeElemnet去除列表中给定的元素，并且返回新的列表的长度 12345678910def removeElement(nums, val):  #计数   while val in nums:     nums.remove(val)   i = len(nums)   return i, nums  if __name__ == &amp;quot;__main__&amp;quot;:   a">
   
     <link rel="alternative" href="/atom.xml" title="Alan Blog" type="application/atom+xml">
   
@@ -149,27 +152,31 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post--10简单算法题目" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Tags
+      9-10简单算法题目
     </h1>
   
 
         
-        <a href="/Tags/index-2.html" class="archive-article-date">
-  	<time datetime="2019-07-26T10:43:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-26</time>
+        <a href="/2019/09/10/-10简单算法题目/" class="archive-article-date">
+  	<time datetime="2019-09-10T09:46:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-10</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="removeElemnet"><a href="#removeElemnet" class="headerlink" title="removeElemnet"></a>removeElemnet</h2><p>去除列表中给定的元素，并且返回新的列表的长度</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">def removeElement(nums, val):</span><br><span class="line">  #计数 </span><br><span class="line">  while val in nums: </span><br><span class="line">    nums.remove(val) </span><br><span class="line">  i = len(nums) </span><br><span class="line">  return i, nums </span><br><span class="line"> </span><br><span class="line">if __name__ == &quot;__main__&quot;: </span><br><span class="line">  a  = [1,2,3,4,2,2,2,3,4,6] </span><br><span class="line">  print(removeElement(a,2))</span><br></pre></td></tr></table></figure>
+
+<h2 id="合并列表"><a href="#合并列表" class="headerlink" title="合并列表"></a>合并列表</h2><p>A,B两个列表，每隔A中的两个元素插入一个B中的元素。返回指定长度的列表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">def insert(A,B,n): </span><br><span class="line">  la = len(A) </span><br><span class="line">  lb = len(B) </span><br><span class="line">  l = 2 </span><br><span class="line">  for i in B: </span><br><span class="line">    A.insert(l, i) # insert(索引，元素)</span><br><span class="line">    l+=3 </span><br><span class="line">  return A[:n] </span><br><span class="line">if __name__ == &quot;__main__&quot;: </span><br><span class="line">    A  = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18] </span><br><span class="line">    B = [1,2,3,4,5,6,7,8,9] </span><br><span class="line">    print(insert(A,B,18)) </span><br><span class="line">    print(sorted(insert(A,B,12)))</span><br></pre></td></tr></table></figure>
       
 
       
@@ -227,7 +234,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://luqianchid.github.io/Tags/index-2.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://luqianchid.github.io/2019/09/10/-10简单算法题目/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -239,6 +246,25 @@
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2019/09/10/长期更新】一些好用的工具-1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          【长期更新】一些好用的工具
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/08/25/Vue使用心得1-词云小项目中踩到的坑/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Vue使用心得1--词云小项目中踩到的坑</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -289,7 +315,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

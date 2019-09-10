@@ -9,21 +9,21 @@
   <title>mysql5.5升级5.6遇到的问题 | Alan Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="前言由于django不在支持mysql5.5导致系统在进行表迁移操作时一直会报错 django.db.utils.ProgrammingError: (1064, &amp;quot;You have an error in your SQL synt 查了一下原因  行吧，开始升级mysql吧。 由于我使用的是phpstudy的集成环境，因此升级mysql遇到了一些问题。 开始1.下载mysql-5.6">
-<meta name="keywords" content="mysql">
+<meta name="keywords" content="mysql,phpstudy">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql5.5升级5.6遇到的问题">
 <meta property="og:url" content="http://luqianchid.github.io/2019/08/07/mysql5-5升级5-6遇到的问题/index.html">
 <meta property="og:site_name" content="Alan Blog">
 <meta property="og:description" content="前言由于django不在支持mysql5.5导致系统在进行表迁移操作时一直会报错 django.db.utils.ProgrammingError: (1064, &amp;quot;You have an error in your SQL synt 查了一下原因  行吧，开始升级mysql吧。 由于我使用的是phpstudy的集成环境，因此升级mysql遇到了一些问题。 开始1.下载mysql-5.6">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://luqianchid.github.io/.io//D:%5CBlog%5Csource_posts%5Cassets%5C1565137946221.png">
-<meta property="og:image" content="http://luqianchid.github.io/.io//.%5Cassets%5C1565138460638.png">
-<meta property="og:image" content="http://luqianchid.github.io/.io//.%5Cassets%5C1565138592065.png">
-<meta property="og:updated_time" content="2019-08-07T01:33:54.739Z">
+<meta property="og:image" content="http://luqianchid.github.io/2019/08/07/mysql5-5升级5-6遇到的问题/images/pasted-1565137946221.png">
+<meta property="og:image" content="http://luqianchid.github.io/.io//%5Cassets%5C1565138460638.png">
+<meta property="og:image" content="http://luqianchid.github.io/.io//%5Cassets%5C1565138592065.png">
+<meta property="og:updated_time" content="2019-09-10T10:37:24.143Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql5.5升级5.6遇到的问题">
 <meta name="twitter:description" content="前言由于django不在支持mysql5.5导致系统在进行表迁移操作时一直会报错 django.db.utils.ProgrammingError: (1064, &amp;quot;You have an error in your SQL synt 查了一下原因  行吧，开始升级mysql吧。 由于我使用的是phpstudy的集成环境，因此升级mysql遇到了一些问题。 开始1.下载mysql-5.6">
-<meta name="twitter:image" content="http://luqianchid.github.io/.io//D:%5CBlog%5Csource_posts%5Cassets%5C1565137946221.png">
+<meta name="twitter:image" content="http://luqianchid.github.io/2019/08/07/mysql5-5升级5-6遇到的问题/images/pasted-1565137946221.png">
   
     <link rel="alternative" href="/atom.xml" title="Alan Blog" type="application/atom+xml">
   
@@ -170,7 +170,7 @@
 
         
         <a href="/2019/08/07/mysql5-5升级5-6遇到的问题/" class="archive-article-date">
-  	<time datetime="2019-08-07T00:23:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-07</time>
+  	<time datetime="2019-08-07T00:23:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-07</time>
 </a>
         
       </header>
@@ -180,7 +180,7 @@
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>由于django不在支持mysql5.5导致系统在进行表迁移操作时一直会报错</p>
 <p><code>django.db.utils.ProgrammingError: (1064, &quot;You have an error in your SQL synt</code></p>
 <p>查了一下原因</p>
-<p><img src="/.io//D:%5CBlog%5Csource_posts%5Cassets%5C1565137946221.png" alt="1565137946221"></p>
+<p><img src="./images/pasted-1565137946221.png" alt="1565137946221"></p>
 <p>行吧，开始升级mysql吧。</p>
 <p>由于我使用的是phpstudy的集成环境，因此升级mysql遇到了一些问题。</p>
 <h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><p>1.下载mysql-5.6的win-64.zip压缩包，这里不建议去官网下载，因为实在是<strong>太慢了</strong></p>
@@ -190,11 +190,11 @@
 <p>2.下载完成后解压，找到你的D:\PHPStudy\PHPTutorial/MySQL目录</p>
 <p>备份一下这个文件夹，然后清空他的内容。将你解压后的内容复制进来。</p>
 <p>这是mysql文件夹下面的目录结构</p>
-<p><img src="/.io//.%5Cassets%5C1565138460638.png" alt="1565138460638"></p>
+<p><img src="/.io//%5Cassets%5C1565138460638.png" alt="1565138460638"></p>
 <p>把你备份的mysql文件夹下面的my.ini的内容复制给my-default.ini.默认引擎是MyISAM，同时添加这两段</p>
 <p>skip-grant-tables = 1 #跳过权限验证<br>log-error = 你的PHPStudy\PHPTutorial路径/MySQL/data/error.log</p>
 <p>3.在系统环境变量中将MySQL/bin添加进去。</p>
-<p><img src="/.io//.%5Cassets%5C1565138592065.png" alt="1565138592065"></p>
+<p><img src="/.io//%5Cassets%5C1565138592065.png" alt="1565138592065"></p>
 <p>4.管理员身份运行cmd</p>
 <p>初始化mysql</p>
 <p>mysqld –initialize –user=mysql</p>
@@ -237,11 +237,26 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">phpstudy</a>
+        		</li>
       		
 		</ul>
 	</div>
 
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			
+        		<li class="article-tag-list-item">
+        			<a href="/categories/teach/" class="article-tag-list-link color1">teach</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -442,15 +457,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">phpstudy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">clipboard</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">teach</a>
+                <a href="javascript:void(0)" class="js-tag color2">django</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">django</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
             
             <div class="clearfix"></div>
