@@ -183,7 +183,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="在Vue中实现一个简单的分享链接功能"><a href="#在Vue中实现一个简单的分享链接功能" class="headerlink" title="在Vue中实现一个简单的分享链接功能"></a>在Vue中实现一个简单的分享链接功能</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 下载clipboard</span></span><br><span class="line">cnpm install clipboard -S</span><br><span class="line"><span class="comment">// 在需要的页面引入 || 单独写个第三方插件加载js,以后所有三方都在那引入</span></span><br><span class="line"><span class="keyword">import</span> Clipboard <span class="keyword">from</span> <span class="string">'clipboard'</span></span><br><span class="line"><span class="comment">// 在分享按钮上绑定属性</span></span><br><span class="line">&lt;el-button :data-clipboard-text=<span class="string">"link"</span>&gt; &lt;/el-button&gt;</span><br><span class="line"><span class="comment">// link在data()中定义</span></span><br><span class="line"><span class="comment">// 在methods中定义share方法</span></span><br><span class="line"><span class="comment">// 对link进行处理</span></span><br><span class="line"><span class="keyword">this</span>.link = <span class="built_in">window</span>.location.href + <span class="string">'share/'</span> + <span class="keyword">this</span>.ShareObj.uuid</span><br><span class="line"><span class="comment">// ShareObj 是在props中定义的，父组件向当前组件传递需要复制的对象</span></span><br><span class="line"><span class="comment">// 这里只复制了链接</span></span><br><span class="line"><span class="keyword">let</span> clipboard = <span class="keyword">new</span> Clipboard(<span class="string">'.copy'</span>) <span class="comment">// 绑定元素      </span></span><br><span class="line">      clipboard.on(<span class="string">'success'</span>, e =&gt; &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'复制成功!'</span>)</span><br><span class="line">        <span class="keyword">this</span>.$notify(&#123;</span><br><span class="line">          title: <span class="string">'复制成功'</span>,</span><br><span class="line">          message: <span class="string">'链接已被复制，粘贴给其他人吧！'</span>,</span><br><span class="line">          duration: <span class="number">2000</span></span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="comment">// 释放内存</span></span><br><span class="line">        clipboard.destroy()</span><br><span class="line">      &#125;)</span><br><span class="line">      clipboard.on(<span class="string">'error'</span>, e =&gt; &#123;</span><br><span class="line">        <span class="comment">// 不支持复制</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'复制失败!'</span>)</span><br><span class="line">        <span class="comment">// 释放内存</span></span><br><span class="line">        clipboard.destroy()</span><br><span class="line">      &#125;)</span><br></pre></td></tr></table></figure>
+        <h2 id="在Vue中实现一个简单的分享链接功能"><a href="#在Vue中实现一个简单的分享链接功能" class="headerlink" title="在Vue中实现一个简单的分享链接功能"></a>在Vue中实现一个简单的分享链接功能</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 下载clipboard</span></span><br><span class="line">cnpm install clipboard -S</span><br><span class="line"><span class="comment">// 在需要的页面引入 || 单独写个第三方插件加载js,以后所有三方都在那引入</span></span><br><span class="line"><span class="keyword">import</span> Clipboard <span class="keyword">from</span> <span class="string">'clipboard'</span></span><br><span class="line"><span class="comment">// 在分享按钮上绑定属性</span></span><br><span class="line">&lt;el-button :data-clipboard-text=<span class="string">"link"</span>&gt; <span class="xml"><span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span></span><br><span class="line"><span class="comment">// link在data()中定义</span></span><br><span class="line"><span class="comment">// 在methods中定义share方法</span></span><br><span class="line"><span class="comment">// 对link进行处理</span></span><br><span class="line"><span class="keyword">this</span>.link = <span class="built_in">window</span>.location.href + <span class="string">'share/'</span> + <span class="keyword">this</span>.ShareObj.uuid</span><br><span class="line"><span class="comment">// ShareObj 是在props中定义的，父组件向当前组件传递需要复制的对象</span></span><br><span class="line"><span class="comment">// 这里只复制了链接</span></span><br><span class="line"><span class="keyword">let</span> clipboard = <span class="keyword">new</span> Clipboard(<span class="string">'.copy'</span>) <span class="comment">// 绑定元素      </span></span><br><span class="line">      clipboard.on(<span class="string">'success'</span>, e =&gt; &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'复制成功!'</span>)</span><br><span class="line">        <span class="keyword">this</span>.$notify(&#123;</span><br><span class="line">          title: <span class="string">'复制成功'</span>,</span><br><span class="line">          message: <span class="string">'链接已被复制，粘贴给其他人吧！'</span>,</span><br><span class="line">          duration: <span class="number">2000</span></span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="comment">// 释放内存</span></span><br><span class="line">        clipboard.destroy()</span><br><span class="line">      &#125;)</span><br><span class="line">      clipboard.on(<span class="string">'error'</span>, e =&gt; &#123;</span><br><span class="line">        <span class="comment">// 不支持复制</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'复制失败!'</span>)</span><br><span class="line">        <span class="comment">// 释放内存</span></span><br><span class="line">        clipboard.destroy()</span><br><span class="line">      &#125;)</span><br></pre></td></tr></table></figure>
       
 
       
@@ -384,15 +384,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color4">phpstudy</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">phpstudy</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -404,15 +408,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">django</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color2">django</a>
               </li>
             
             <div class="clearfix"></div>
