@@ -8,13 +8,17 @@
   <link rel="dns-prefetch" href="http://luqianchid.github.io">
   <title>Alan Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="alan&apos;s blog">
+<meta name="keywords" content="blog">
+<meta property="og:type" content="website">
 <meta property="og:title" content="Alan Blog">
 <meta property="og:url" content="http://luqianchid.github.io/index.html">
 <meta property="og:site_name" content="Alan Blog">
-<meta property="og:locale" content="default">
+<meta property="og:description" content="alan&apos;s blog">
+<meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Alan Blog">
+<meta name="twitter:description" content="alan&apos;s blog">
   
     <link rel="alternative" href="/atom.xml" title="Alan Blog" type="application/atom+xml">
   
@@ -25,7 +29,7 @@
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+      background: linear-gradient(200deg,#00c3ff, #ffff1c);
     }
   </style>
   
@@ -55,6 +59,8 @@
 			
 				<li><a href="/">主页</a></li>
 	        
+				<li><a href="/categories/easy">随笔</a></li>
+	        
 				<li><a href="/categories/teach">教程</a></li>
 	        
 				<li><a href="/categories/tools">工具</a></li>
@@ -68,6 +74,10 @@
     			
             
     			
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
+    			
+            
+    			
     			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
     			
             
@@ -77,7 +87,7 @@
 				
 					<a class="github" target="_blank" href="https://github.com/luqianchid" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weixin" target="_blank" href="/fengshuo233" title="weixin"><i class="icon-weixin"></i></a>
+					<a class="weixin" target="_blank" href="/avatar/weixin.jpg" title="weixin"><i class="icon-weixin"></i></a>
 		        
 					<a class="mail" target="_blank" href="mailto:luqianchid@163.com" title="mail"><i class="icon-mail"></i></a>
 		        
@@ -111,6 +121,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -118,7 +130,7 @@
 					
 						<a class="github" target="_blank" href="https://github.com/luqianchid" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weixin" target="_blank" href="/fengshuo233" title="weixin"><i class="icon-weixin"></i></a>
+						<a class="weixin" target="_blank" href="/avatar/weixin.jpg" title="weixin"><i class="icon-weixin"></i></a>
 			        
 						<a class="mail" target="_blank" href="mailto:luqianchid@163.com" title="mail"><i class="icon-mail"></i></a>
 			        
@@ -129,11 +141,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/teach">教程</a></li>
+					<li style="width: 25%"><a href="/categories/easy">随笔</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/tools">工具</a></li>
+					<li style="width: 25%"><a href="/categories/teach">教程</a></li>
+		        
+					<li style="width: 25%"><a href="/categories/tools">工具</a></li>
 		        
 				</ul>
 			</nav>
@@ -149,6 +163,304 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-S类型判断" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/16/S类型判断/">JS类型判断</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/16/S类型判断/" class="archive-article-date">
+  	<time datetime="2019-09-15T23:56:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="JS判断类型的四种方式"><a href="#JS判断类型的四种方式" class="headerlink" title="JS判断类型的四种方式"></a>JS判断类型的四种方式</h1><h2 id="typeof"><a href="#typeof" class="headerlink" title="typeof"></a>typeof</h2><p>不足之处 null与array都会被显示成object</p>
+<h2 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h2><p>不足之处 只有引用数据类型（Array，Function，Object）被精准判断<br>数值Number，布尔值Boolean，字符串String 字面值不能被instanceof精准判断<br>只能实例化之后才能判断  </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span> instance <span class="keyword">of</span> <span class="built_in">Number</span> <span class="literal">false</span>  </span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">2</span>) <span class="keyword">instanceof</span> <span class="built_in">Number</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>另外 instanceof 无法判断undefined 与 null  </p>
+<h2 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log((<span class="number">2</span>).constructor === <span class="built_in">Number</span>)</span><br><span class="line"><span class="built_in">console</span>.log((<span class="literal">true</span>).constructor === <span class="built_in">Boolean</span>)</span><br><span class="line"><span class="built_in">console</span>.log((<span class="string">'str'</span>).constructor === <span class="built_in">String</span>)</span><br><span class="line"><span class="built_in">console</span>.log(([]).constructor === <span class="built_in">Array</span>)</span><br><span class="line"><span class="built_in">console</span>.log((<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;).constructor === <span class="built_in">Function</span>)</span><br><span class="line"><span class="built_in">console</span>.log((&#123;&#125;).constructor === <span class="built_in">Object</span>)</span><br></pre></td></tr></table></figure>
+
+<p>constructor看起来很完美，但是当我们新建一个对象并且修改了他的原型时，constructor也歇菜了。</p>
+<h2 id="Object-prototype-toString-call"><a href="#Object-prototype-toString-call" class="headerlink" title="Object.prototype.toString.call()"></a>Object.prototype.toString.call()</h2><p>庆贺吧！（划掉）<br>最精确的方法<br>Object.prototype.toString.call(‘str’) =&gt; [object String]<br>此方法可以完美判断所有类型。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/16/S类型判断/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-s-算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/14/s-算法/">简单算法题目</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/14/s-算法/" class="archive-article-date">
+  	<time datetime="2019-09-14T05:07:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="生成指定长度的随机字符串"><a href="#生成指定长度的随机字符串" class="headerlink" title="生成指定长度的随机字符串"></a>生成指定长度的随机字符串</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> (<span class="params">n</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">let</span> str = <span class="string">'abcdefghijklmnopqrstuvwxyz1234567890'</span></span><br><span class="line">	<span class="keyword">let</span> temp = <span class="string">''</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i&lt; n; i++)&#123;</span><br><span class="line">		temp += str.charAt(<span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*str.length))</span><br><span class="line">	&#125;</span><br><span class="line">   <span class="keyword">return</span> temp</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="对数组进行两边低中间高的排序"><a href="#对数组进行两边低中间高的排序" class="headerlink" title="对数组进行两边低中间高的排序"></a>对数组进行两边低中间高的排序</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 针对奇数偶数两种情况，若是偶数，直接对半分，一个升序，一个降序，再组合</span></span><br><span class="line"><span class="comment"># 若是奇数，取最大值，两边各自排序。</span></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ceshi</span><span class="params">(list)</span>:</span></span><br><span class="line">    l = len(list)</span><br><span class="line">    list.sort()</span><br><span class="line">    maxNum = max(list)    </span><br><span class="line">    cur = int(l/<span class="number">2</span>)</span><br><span class="line">    left = list[<span class="number">0</span>:cur]</span><br><span class="line">    right = list[cur:l<span class="number">-1</span>]</span><br><span class="line">    right.reverse()  </span><br><span class="line">    list = left+[maxNum]+right</span><br><span class="line">    <span class="keyword">return</span> list</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">rand</span><span class="params">(n)</span>:</span></span><br><span class="line">  l = []</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">    l.append(random.randint(<span class="number">1</span>,<span class="number">100</span>))</span><br><span class="line">  print(l)</span><br><span class="line">  <span class="keyword">return</span> l</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    l = rand(<span class="number">11</span>)</span><br><span class="line">    ceshi(l)</span><br></pre></td></tr></table></figure>
+
+<h3 id="找到句子中最长的单词，并计算它的长度"><a href="#找到句子中最长的单词，并计算它的长度" class="headerlink" title="找到句子中最长的单词，并计算它的长度"></a>找到句子中最长的单词，并计算它的长度</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">MaxWord</span>(<span class="params">str</span>)</span>&#123;</span><br><span class="line">  list = str.split(<span class="string">' '</span>)</span><br><span class="line">  list.sort(<span class="function">(<span class="params">a,b</span>)=&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> b.length - a.length</span><br><span class="line">    <span class="comment">// 降序排列</span></span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">return</span> list[<span class="number">0</span>].length</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/14/s-算法/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-14js算法-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/14/14js算法-1/">9-14js算法</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/14/14js算法-1/" class="archive-article-date">
+  	<time datetime="2019-09-14T04:58:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="判断一个单词是否回文"><a href="#判断一个单词是否回文" class="headerlink" title="判断一个单词是否回文"></a>判断一个单词是否回文</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> (<span class="params">str</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> str === str.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 分隔字符串，反转列表，组合列表元素</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> (<span class="params">arr</span>)</span>&#123;	</span><br><span class="line">	<span class="keyword">return</span> [...new <span class="built_in">Set</span>(arr)]</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// ...是es6的扩展运算符，取出参数对象中的所有可遍历属性，拷贝到当前对象之中</span></span><br><span class="line"><span class="comment">// set 用于去除重复项</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="数组中差值最大的两个元素"><a href="#数组中差值最大的两个元素" class="headerlink" title="数组中差值最大的两个元素"></a>数组中差值最大的两个元素</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">   arr.sort()</span><br><span class="line">   <span class="comment">// 默认升序</span></span><br><span class="line">   min = arr[<span class="number">0</span>]</span><br><span class="line">   max = arr[arr.length<span class="number">-1</span>]</span><br><span class="line">   <span class="keyword">return</span> max, min</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			
+        		<li class="article-tag-list-item">
+        			<a href="/categories/teach/" class="article-tag-list-link color1">teach</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/14/14js算法-1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-美食频道233" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/10/美食频道233/">美食频道233</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/10/美食频道233/" class="archive-article-date">
+  	<time datetime="2019-09-10T11:42:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="自制麻辣烫！"><a href="#自制麻辣烫！" class="headerlink" title="自制麻辣烫！"></a>自制麻辣烫！</h2><h4 id="1-把丸子，土豆煮熟，青菜下热水滚一遍"><a href="#1-把丸子，土豆煮熟，青菜下热水滚一遍" class="headerlink" title="1.把丸子，土豆煮熟，青菜下热水滚一遍"></a>1.把丸子，土豆煮熟，青菜下热水滚一遍</h4><h4 id="2-准备调料，以及麻辣烫料包"><a href="#2-准备调料，以及麻辣烫料包" class="headerlink" title="2.准备调料，以及麻辣烫料包"></a>2.准备调料，以及麻辣烫料包</h4><h4 id="3-起锅加油，放入姜葱蒜，小米椒，加入料包，翻炒至酱料融化"><a href="#3-起锅加油，放入姜葱蒜，小米椒，加入料包，翻炒至酱料融化" class="headerlink" title="3.起锅加油，放入姜葱蒜，小米椒，加入料包，翻炒至酱料融化"></a>3.起锅加油，放入姜葱蒜，小米椒，加入料包，翻炒至酱料融化</h4><h4 id="4-加生抽一勺，酱油适量，加入清水"><a href="#4-加生抽一勺，酱油适量，加入清水" class="headerlink" title="4.加生抽一勺，酱油适量，加入清水"></a>4.加生抽一勺，酱油适量，加入清水</h4><h4 id="5-将煮熟的丸子蔬菜倒入锅中，大火煮至沸腾"><a href="#5-将煮熟的丸子蔬菜倒入锅中，大火煮至沸腾" class="headerlink" title="5.将煮熟的丸子蔬菜倒入锅中，大火煮至沸腾"></a>5.将煮熟的丸子蔬菜倒入锅中，大火煮至沸腾</h4><h4 id="6-5分钟之后即可出锅，加入花椒油"><a href="#6-5分钟之后即可出锅，加入花椒油" class="headerlink" title="6.5分钟之后即可出锅，加入花椒油"></a>6.5分钟之后即可出锅，加入花椒油</h4><h3 id="招待不周！"><a href="#招待不周！" class="headerlink" title="招待不周！"></a>招待不周！</h3>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			
+        		<li class="article-tag-list-item">
+        			<a href="/categories/easy/" class="article-tag-list-link color5">easy</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/10/美食频道233/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-s点击按钮复制链接" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -170,7 +482,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="在Vue中实现一个简单的分享链接功能"><a href="#在Vue中实现一个简单的分享链接功能" class="headerlink" title="在Vue中实现一个简单的分享链接功能"></a>在Vue中实现一个简单的分享链接功能</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">// 下载clipboard</span><br><span class="line">cnpm install clipboard -S</span><br><span class="line">// 在需要的页面引入 || 单独写个第三方插件加载js,以后所有三方都在那引入</span><br><span class="line">import Clipboard from &apos;clipboard&apos;</span><br><span class="line">// 在分享按钮上绑定属性</span><br><span class="line">&lt;el-button :data-clipboard-text=&quot;link&quot;&gt; &lt;/el-button&gt;</span><br><span class="line">// link在data()中定义</span><br><span class="line">// 在methods中定义share方法</span><br><span class="line">// 对link进行处理</span><br><span class="line">this.link = window.location.href + &apos;share/&apos; + this.ShareObj.uuid</span><br><span class="line">// ShareObj 是在props中定义的，父组件向当前组件传递需要复制的对象</span><br><span class="line">// 这里只复制了链接</span><br><span class="line">let clipboard = new Clipboard(&apos;.copy&apos;) // 绑定元素      </span><br><span class="line">      clipboard.on(&apos;success&apos;, e =&gt; &#123;</span><br><span class="line">        console.log(&apos;复制成功!&apos;)</span><br><span class="line">        this.$notify(&#123;</span><br><span class="line">          title: &apos;复制成功&apos;,</span><br><span class="line">          message: &apos;链接已被复制，粘贴给其他人吧！&apos;,</span><br><span class="line">          duration: 2000</span><br><span class="line">        &#125;)</span><br><span class="line">        // 释放内存</span><br><span class="line">        clipboard.destroy()</span><br><span class="line">      &#125;)</span><br><span class="line">      clipboard.on(&apos;error&apos;, e =&gt; &#123;</span><br><span class="line">        // 不支持复制</span><br><span class="line">        console.log(&apos;复制失败!&apos;)</span><br><span class="line">        // 释放内存</span><br><span class="line">        clipboard.destroy()</span><br><span class="line">      &#125;)</span><br></pre></td></tr></table></figure>
+        <h2 id="在Vue中实现一个简单的分享链接功能"><a href="#在Vue中实现一个简单的分享链接功能" class="headerlink" title="在Vue中实现一个简单的分享链接功能"></a>在Vue中实现一个简单的分享链接功能</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 下载clipboard</span></span><br><span class="line">cnpm install clipboard -S</span><br><span class="line"><span class="comment">// 在需要的页面引入 || 单独写个第三方插件加载js,以后所有三方都在那引入</span></span><br><span class="line"><span class="keyword">import</span> Clipboard <span class="keyword">from</span> <span class="string">'clipboard'</span></span><br><span class="line"><span class="comment">// 在分享按钮上绑定属性</span></span><br><span class="line">&lt;el-button :data-clipboard-text=<span class="string">"link"</span>&gt; &lt;/el-button&gt;</span><br><span class="line"><span class="comment">// link在data()中定义</span></span><br><span class="line"><span class="comment">// 在methods中定义share方法</span></span><br><span class="line"><span class="comment">// 对link进行处理</span></span><br><span class="line"><span class="keyword">this</span>.link = <span class="built_in">window</span>.location.href + <span class="string">'share/'</span> + <span class="keyword">this</span>.ShareObj.uuid</span><br><span class="line"><span class="comment">// ShareObj 是在props中定义的，父组件向当前组件传递需要复制的对象</span></span><br><span class="line"><span class="comment">// 这里只复制了链接</span></span><br><span class="line"><span class="keyword">let</span> clipboard = <span class="keyword">new</span> Clipboard(<span class="string">'.copy'</span>) <span class="comment">// 绑定元素      </span></span><br><span class="line">      clipboard.on(<span class="string">'success'</span>, e =&gt; &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'复制成功!'</span>)</span><br><span class="line">        <span class="keyword">this</span>.$notify(&#123;</span><br><span class="line">          title: <span class="string">'复制成功'</span>,</span><br><span class="line">          message: <span class="string">'链接已被复制，粘贴给其他人吧！'</span>,</span><br><span class="line">          duration: <span class="number">2000</span></span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="comment">// 释放内存</span></span><br><span class="line">        clipboard.destroy()</span><br><span class="line">      &#125;)</span><br><span class="line">      clipboard.on(<span class="string">'error'</span>, e =&gt; &#123;</span><br><span class="line">        <span class="comment">// 不支持复制</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'复制失败!'</span>)</span><br><span class="line">        <span class="comment">// 释放内存</span></span><br><span class="line">        clipboard.destroy()</span><br><span class="line">      &#125;)</span><br></pre></td></tr></table></figure>
       
 
       
@@ -259,9 +571,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>在跟室友一起搞小项目的时候遇到了一个问题，element框架把文件上传单独拎了出来，不在el-form中，但是我需要的是一起提交(包括文本和文件)，在查阅了一些资料之后解决了这个问题。有经验了~,以下是一个基础的例子，更复杂的表单都可以在此基础上扩展。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// html 部分</span><br><span class="line">// 其他表单项</span><br><span class="line">... </span><br><span class="line">&lt;el-upload</span><br><span class="line">        class=&quot;upload&quot;</span><br><span class="line">        :limit=&quot;1&quot;</span><br><span class="line">        :before-upload=&quot;beforeUpload&quot;</span><br><span class="line">        action=&quot;&quot;</span><br><span class="line">        :file-list=&quot;file&quot;</span><br><span class="line">        accept=&quot;image/png,image/jpg,image/jpeg&quot;</span><br><span class="line">        &gt;</span><br><span class="line">          &lt;el-button size=&quot;small&quot; type=&quot;primary&quot;&gt;点击上传&lt;/el-button&gt;</span><br><span class="line">          &lt;div slot=&quot;tip&quot; class=&quot;el-upload__tip&quot;&gt;只能上传jpg/png文件，且不超过2MB&lt;/div&gt;</span><br><span class="line">&lt;/el-upload&gt;</span><br><span class="line"> ...</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// html 部分</span><br><span class="line">// 其他表单项</span><br><span class="line">... </span><br><span class="line"><span class="tag">&lt;<span class="name">el-upload</span></span></span><br><span class="line"><span class="tag">        <span class="attr">class</span>=<span class="string">"upload"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">:limit</span>=<span class="string">"1"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">:before-upload</span>=<span class="string">"beforeUpload"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">action</span>=<span class="string">""</span></span></span><br><span class="line"><span class="tag">        <span class="attr">:file-list</span>=<span class="string">"file"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">accept</span>=<span class="string">"image/png,image/jpg,image/jpeg"</span></span></span><br><span class="line"><span class="tag">        &gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">size</span>=<span class="string">"small"</span> <span class="attr">type</span>=<span class="string">"primary"</span>&gt;</span>点击上传<span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">div</span> <span class="attr">slot</span>=<span class="string">"tip"</span> <span class="attr">class</span>=<span class="string">"el-upload__tip"</span>&gt;</span>只能上传jpg/png文件，且不超过2MB<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">el-upload</span>&gt;</span></span><br><span class="line"> ...</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">// js部分</span><br><span class="line">在data（）中</span><br><span class="line">	content: &#123;</span><br><span class="line">     title: &apos;&apos;,</span><br><span class="line">     word: &apos;&apos;</span><br><span class="line">   &#125;,  // 这是正常的form中的内容</span><br><span class="line">   formData: new FormData()</span><br><span class="line">// 此时需要formData来完成数据的提交了</span><br><span class="line">在methods中定义before-upload绑定的方法，处理文件上传</span><br><span class="line"> beforeUpload (file) &#123;      </span><br><span class="line">      // 文件大小检验</span><br><span class="line">      // 文件格式检验      </span><br><span class="line">      this.formData.set(&apos;bgimg&apos;, file) // 数据装填</span><br><span class="line">      // 有许多blog使用append,但是不建议你这样做，因为在不刷新的情况下</span><br><span class="line">      // append会一直向formData中添加。这也是踩得坑</span><br><span class="line">      // 阻止默认上传</span><br><span class="line">      return false</span><br><span class="line">    &#125;,</span><br><span class="line"> 当我们所有的表单数据都装填进formData中了，在提交时</span><br><span class="line"> this.$ajax.post(&apos;/code/&apos;, this.formData) 即可</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// js部分</span></span><br><span class="line">在data（）中</span><br><span class="line">	content: &#123;</span><br><span class="line">     title: <span class="string">''</span>,</span><br><span class="line">     word: <span class="string">''</span></span><br><span class="line">   &#125;,  <span class="comment">// 这是正常的form中的内容</span></span><br><span class="line">   formData: <span class="keyword">new</span> FormData()</span><br><span class="line"><span class="comment">// 此时需要formData来完成数据的提交了</span></span><br><span class="line">在methods中定义before-upload绑定的方法，处理文件上传</span><br><span class="line"> beforeUpload (file) &#123;      </span><br><span class="line">      <span class="comment">// 文件大小检验</span></span><br><span class="line">      <span class="comment">// 文件格式检验      </span></span><br><span class="line">      <span class="keyword">this</span>.formData.set(<span class="string">'bgimg'</span>, file) <span class="comment">// 数据装填</span></span><br><span class="line">      <span class="comment">// 有许多blog使用append,但是不建议你这样做，因为在不刷新的情况下</span></span><br><span class="line">      <span class="comment">// append会一直向formData中添加。这也是踩得坑</span></span><br><span class="line">      <span class="comment">// 阻止默认上传</span></span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;,</span><br><span class="line"> 当我们所有的表单数据都装填进formData中了，在提交时</span><br><span class="line"> <span class="keyword">this</span>.$ajax.post(<span class="string">'/code/'</span>, <span class="keyword">this</span>.formData) 即可</span><br></pre></td></tr></table></figure>
       
 
       
@@ -486,26 +798,26 @@
       
         <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>最近在尝试做一个词云小项目，项目构成非常简单，一个提交模块，一个列表展示模块。结构很简单，但是对于 咸鱼来说还是毫无防备的踩进了坑里。==</p>
 <h2 id="跨域问题"><a href="#跨域问题" class="headerlink" title="跨域问题"></a>跨域问题</h2><p>引入axios后设置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Axios.defaults.withCredentials = true</span><br><span class="line"></span><br><span class="line">Axios.defaults.headers[&apos;Content-Type&apos;] = &apos;application/x-www-form-urlencoded&apos;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Axios.defaults.withCredentials = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">Axios.defaults.headers[<span class="string">'Content-Type'</span>] = <span class="string">'application/x-www-form-urlencoded'</span></span><br></pre></td></tr></table></figure>
 
 <p>默认的header是application/json。注意这是前端方面的，后端的跨域设置要根据框架进行调整。</p>
 <p>然后安装qs</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install qs --save</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install qs --save</span><br></pre></td></tr></table></figure>
 
 <p>在进行post请求时对data对象进行处理  qs.stringify(data).</p>
 <p>如果觉得这种方式每次都要引入比较麻烦，就对axios进行一次封装，设置拦截器，对post请求进行拦截，处理data格式。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">axios.interceptors.request.use(</span><br><span class="line"></span><br><span class="line">  (config) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">​    if (config.method === &apos;post&apos;) &#123;</span><br><span class="line"></span><br><span class="line">​      config.data = qs.stringify(config.data)</span><br><span class="line"></span><br><span class="line">​    &#125;</span><br><span class="line"></span><br><span class="line">​    return config</span><br><span class="line"></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  (error) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">​    return Promise.reject(error)</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">axios.interceptors.request.use(</span><br><span class="line"></span><br><span class="line">  (config) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">​    <span class="keyword">if</span> (config.method === <span class="string">'post'</span>) &#123;</span><br><span class="line"></span><br><span class="line">​      config.data = qs.stringify(config.data)</span><br><span class="line"></span><br><span class="line">​    &#125;</span><br><span class="line"></span><br><span class="line">​    <span class="keyword">return</span> config</span><br><span class="line"></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  (error) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">​    <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(error)</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 
 <h2 id="非父子组件（兄弟组件传值）"><a href="#非父子组件（兄弟组件传值）" class="headerlink" title="非父子组件（兄弟组件传值）"></a>非父子组件（兄弟组件传值）</h2><p>设A，B两个组件之间要进行通信，A完成某个动作后触发B中的数据更新。</p>
 <p>新建一个Bus.js</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &apos;vue&apos;</span><br><span class="line"></span><br><span class="line">export default new Vue()</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Vue()</span><br></pre></td></tr></table></figure>
 
 <p>在AB组件中分别引入Bus.js</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import Bus from &apos;youpath/Bus&apos;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Bus <span class="keyword">from</span> <span class="string">'youpath/Bus'</span></span><br></pre></td></tr></table></figure>
 
 <p>例如我需要在A组件中提交完数据后触发B组件中列表刷新</p>
 <p>在A中的submit方法中写入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Bus.$emit(&apos;initList&apos;, value) // 这个value可以是你想传递给B的任何值</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Bus.$emit(<span class="string">'initList'</span>, value) <span class="comment">// 这个value可以是你想传递给B的任何值</span></span><br></pre></td></tr></table></figure>
 
 <p>在B中的mounted生命周期中写入：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Bus.$on(&apos;initList&apos;, （val) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">​	this.refresh() // 我的刷新列表命令</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">beforeDestroy () &#123;</span><br><span class="line"></span><br><span class="line">​    Bus.$off(&apos;refresh&apos;) // 移除事件监听</span><br><span class="line"></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
@@ -526,7 +838,7 @@
 </li>
 </ul>
 <h2 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h2><p>如何一起提交上传的文件以及表单元素？如果是原生html很好处理，但是既然用了框架，总不能没有办法解决这个问题吧？此时就需要用到formData 了，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">data （）  &#123;</span><br><span class="line"></span><br><span class="line">​	return &#123;</span><br><span class="line"></span><br><span class="line">​		...</span><br><span class="line"></span><br><span class="line">​		formData : new FormData(),</span><br><span class="line"></span><br><span class="line">​		...	</span><br><span class="line"></span><br><span class="line">​	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">data （）  &#123;</span><br><span class="line"></span><br><span class="line">​	<span class="keyword">return</span> &#123;</span><br><span class="line"></span><br><span class="line">​		...</span><br><span class="line"></span><br><span class="line">​		formData : <span class="keyword">new</span> FormData(),</span><br><span class="line"></span><br><span class="line">​		...	</span><br><span class="line"></span><br><span class="line">​	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>使用el-upload的组件before-upload属性，绑定fafa</p>
 <p>:before-upload=”beforeUpload”</p>
@@ -618,7 +930,7 @@
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>由于django不在支持mysql5.5导致系统在进行表迁移操作时一直会报错</p>
 <p><code>django.db.utils.ProgrammingError: (1064, &quot;You have an error in your SQL synt</code></p>
 <p>查了一下原因</p>
-<p><img src="./images/pasted-1565137946221.png" alt="1565137946221"></p>
+<p>django2.1在18年12月停止支持5.5了，只能使用更高版本的mysql</p>
 <p>行吧，开始升级mysql吧。</p>
 <p>由于我使用的是phpstudy的集成环境，因此升级mysql遇到了一些问题。</p>
 <h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><p>1.下载mysql-5.6的win-64.zip压缩包，这里不建议去官网下载，因为实在是<strong>太慢了</strong></p>
@@ -728,323 +1040,10 @@
 
 
   
-    <article id="post-初始化一个django项目" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/06/初始化一个django项目/">初始化一个django项目</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/06/初始化一个django项目/" class="archive-article-date">
-  	<time datetime="2019-08-06T13:44:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p>1.保证你的mysql本版本大于等于5.6</p>
-<p>django2.1在18年12月之后不在支持5.5，仅支持5.6或更高</p>
-<p>2.最好能科学上网</p>
-<p>有一些依赖包如果没有翻墙工具会下载失败，为了不麻烦，准备个梯子吧。</p>
-<h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><p>指定版本下载 2.2是长期支持版本</p>
-<p>pip install django==2.2 </p>
-<p>cd D:/</p>
-<p>mkdir django_project #之后创建的项目都扔在这个文件夹下面了</p>
-<p>cd django_project</p>
-<p>创建项目</p>
-<p>django-admin startproject  myapp</p>
-<p>cd myapp</p>
-<p>运行</p>
-<p>python manage.py runserver</p>
-<p>一般在127.0.0.1:8000端口</p>
-<p>看到小火箭就代表床架成功了</p>
-<h1 id="创建模块"><a href="#创建模块" class="headerlink" title="创建模块"></a>创建模块</h1><p>1.python manage.py startapp firstapp</p>
-<p> cd firstapp</p>
-<p>把myapp下的urls.py拷贝过来.</p>
-<p>urls是路由，views是视图，models是关于数据库的表模型</p>
-<p>在上一级的settings.py中配置项目</p>
-<p>在INSTALLED_APPS中注册你的app： ‘firstapp’</p>
-<p>时区修改一下 TIME_ZONE = ‘Asia/Shanghai’</p>
-<p>关于数据库这里，使用mysql配置如下</p>
-<p>再此之前，在myapp下的<strong>init</strong>.py中加入</p>
-<p>import pymysql # 没有的话pip install pymysql安装即可</p>
-<p>pymysql.install_as_MySQLdb()</p>
-<p>DATABASES = {</p>
-<p>​    ‘default’: {</p>
-<p>​        ‘ENGINE’: ‘django.db.backends.mysql’,</p>
-<p>​        ‘NAME’: ‘myblog’, # 数据库名</p>
-<p>​        ‘HOST’: ‘127.0.0.1’,  # 主机</p>
-<p>​        ‘USER’:’root’, # 用户名</p>
-<p>​        ‘PASSWORD’:’root’, # 密码</p>
-<p>​        ‘PORT’: ‘3306’ # 端口</p>
-<p>​    }</p>
-<p>}</p>
-<h1 id="一些可能遇到的问题"><a href="#一些可能遇到的问题" class="headerlink" title="一些可能遇到的问题"></a>一些可能遇到的问题</h1><p>1.django.core.exceptions.ImproperlyConfigured: mysqlclient 1.3.3 or newer is required; you have 0.9 None</p>
-<p>这个问题我试着更新了一下mysqlclient，但是没能解决，有一个办法是进入python的安装目录</p>
-<p>选择Lib-&gt;site-packages-&gt;django-&gt;db-&gt;backends-&gt;mysql修改两个文件：base.py,将</p>
-<p>if version &lt; (1, 3, 13):</p>
-<p>​     raise ImproperlyConfigured(‘mysqlclient 1.3.13 or newer is required; you have %s.’ % Database.<strong>version</strong>)</p>
-<p>注释掉。</p>
-<p>operations.py：</p>
-<p>146行的 decode改为encode。</p>
-<p>2.如果出现django.db.utils.ProgrammingError: (1064, “You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ‘(6) NOT NULL)’ at line 1”)，检查一下你的mysql版本。5.6以上应该不会出现这种问题了，我由于是5.5遇到这个报错。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">django</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			
-        		<li class="article-tag-list-item">
-        			<a href="/categories/teach/" class="article-tag-list-link color1">teach</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/06/初始化一个django项目/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-python下连接数据库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/27/python下连接数据库/">python下连接数据库</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/27/python下连接数据库/" class="archive-article-date">
-  	<time datetime="2019-07-27T05:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"></span><br><span class="line">conn = pymysql.connect(<span class="string">'主机地址'</span>,<span class="string">'user'</span>,<span class="string">'password'</span>,<span class="string">'db'</span>) <span class="comment">#创建连接</span></span><br><span class="line">cursor = conn.cursor() <span class="comment">#创建游标</span></span><br><span class="line">sql = <span class="string">""</span> <span class="comment">#编写sql语句</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    cursor.execute(sql)<span class="comment">#执行语句   </span></span><br><span class="line">    conn.commit()<span class="comment">#提交    </span></span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">	<span class="keyword">raise</span> e    </span><br><span class="line">conn.close() <span class="comment">#关闭连接</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="个人心得"><a href="#个人心得" class="headerlink" title="个人心得"></a>个人心得</h2><p>数据库的连接和关闭最好在函数执行结束后调用，否则循环中每一次都要重新连接关闭数据库，之前做过一次测试，将连接关闭操作提出后，插入数据库几乎都是毫秒级，如果在循环中，每次都在1s以上。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			
-        		<li class="article-tag-list-item">
-        			<a href="/categories/tools/" class="article-tag-list-link color1">tools</a>
-        		</li>
-      		
-        		<li class="article-tag-list-item">
-        			<a href="/categories/tools/teach/" class="article-tag-list-link color1">teach</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/27/python下连接数据库/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-如何提高github的下载速度" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/27/如何提高github的下载速度/">如何提高github的下载速度</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/27/如何提高github的下载速度/" class="archive-article-date">
-  	<time datetime="2019-07-27T05:32:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><p>本地配置好git</p>
-<p>拥有github账号，并设置好ssh密钥</p>
-<p>使用github登陆码云，设置好ssh密钥（两者一样）</p>
-<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><p>1.在github上找到自己需要的仓库，fork进自己的账号内</p>
-<p>2.在码云上新建仓库，点击页面上方的加号按钮，选择从github导入</p>
-<p>3.初次导入会验证，成功后会看到GitHub的仓库列表</p>
-<p>4.选择自己需要导入的仓库，导入成功过后刷新码云</p>
-<p>5.选择clone或下载，复制ssh地址。在本地找好文件夹git bash运行克隆命令即可。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			
-        		<li class="article-tag-list-item">
-        			<a href="/categories/teach/" class="article-tag-list-link color1">teach</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/27/如何提高github的下载速度/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 
 
@@ -1072,7 +1071,7 @@
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
-		open_in_new: false,
+		open_in_new: true,
 		toc_hide_index: true,
 		root: "/",
 		innerArchive: true,
@@ -1099,17 +1098,25 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
       
     
+      
+      
+      
+    
     
 
     <ul style="width: 70%">
     
     
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
+      
+        
+      
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
@@ -1138,6 +1145,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">phpstudy</a>
               </li>
              
@@ -1150,15 +1161,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">django</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
             
             <div class="clearfix"></div>
@@ -1205,11 +1216,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
 
     
+    	<section class="tools-section tools-section-friends" q-show="friends">
+  		
+        <ul class="search-ul">
+          
+            <li class="search-li">
+              <a href="http://xiaoqc.cn/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>xiaoqc</a>
+            </li>
+          
+        </ul>
+  		
+    	</section>
+    
 
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">联系我&lt;br/&gt;luqianchid@gmail.com&lt;br/&gt;luqianchid@163.com</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">联系我&lt;br/&gt;luqianchid@gmail.com&lt;br/&gt;18538069957@163.com</div>
   	  	
     	</section>
     

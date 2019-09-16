@@ -8,22 +8,21 @@
   <link rel="dns-prefetch" href="http://luqianchid.github.io">
   <title>mysql5.5升级5.6遇到的问题 | Alan Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言由于django不在支持mysql5.5导致系统在进行表迁移操作时一直会报错 django.db.utils.ProgrammingError: (1064, &amp;quot;You have an error in your SQL synt 查了一下原因  行吧，开始升级mysql吧。 由于我使用的是phpstudy的集成环境，因此升级mysql遇到了一些问题。 开始1.下载mysql-5.6">
+  <meta name="description" content="前言由于django不在支持mysql5.5导致系统在进行表迁移操作时一直会报错 django.db.utils.ProgrammingError: (1064, &amp;quot;You have an error in your SQL synt 查了一下原因 django2.1在18年12月停止支持5.5了，只能使用更高版本的mysql 行吧，开始升级mysql吧。 由于我使用的是phpstudy">
 <meta name="keywords" content="mysql,phpstudy">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql5.5升级5.6遇到的问题">
 <meta property="og:url" content="http://luqianchid.github.io/2019/08/07/mysql5-5升级5-6遇到的问题/index.html">
 <meta property="og:site_name" content="Alan Blog">
-<meta property="og:description" content="前言由于django不在支持mysql5.5导致系统在进行表迁移操作时一直会报错 django.db.utils.ProgrammingError: (1064, &amp;quot;You have an error in your SQL synt 查了一下原因  行吧，开始升级mysql吧。 由于我使用的是phpstudy的集成环境，因此升级mysql遇到了一些问题。 开始1.下载mysql-5.6">
-<meta property="og:locale" content="default">
-<meta property="og:image" content="http://luqianchid.github.io/2019/08/07/mysql5-5升级5-6遇到的问题/images/pasted-1565137946221.png">
+<meta property="og:description" content="前言由于django不在支持mysql5.5导致系统在进行表迁移操作时一直会报错 django.db.utils.ProgrammingError: (1064, &amp;quot;You have an error in your SQL synt 查了一下原因 django2.1在18年12月停止支持5.5了，只能使用更高版本的mysql 行吧，开始升级mysql吧。 由于我使用的是phpstudy">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://luqianchid.github.io/.io//%5Cassets%5C1565138460638.png">
 <meta property="og:image" content="http://luqianchid.github.io/.io//%5Cassets%5C1565138592065.png">
-<meta property="og:updated_time" content="2019-09-10T10:37:24.143Z">
+<meta property="og:updated_time" content="2019-09-10T11:08:31.097Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql5.5升级5.6遇到的问题">
-<meta name="twitter:description" content="前言由于django不在支持mysql5.5导致系统在进行表迁移操作时一直会报错 django.db.utils.ProgrammingError: (1064, &amp;quot;You have an error in your SQL synt 查了一下原因  行吧，开始升级mysql吧。 由于我使用的是phpstudy的集成环境，因此升级mysql遇到了一些问题。 开始1.下载mysql-5.6">
-<meta name="twitter:image" content="http://luqianchid.github.io/2019/08/07/mysql5-5升级5-6遇到的问题/images/pasted-1565137946221.png">
+<meta name="twitter:description" content="前言由于django不在支持mysql5.5导致系统在进行表迁移操作时一直会报错 django.db.utils.ProgrammingError: (1064, &amp;quot;You have an error in your SQL synt 查了一下原因 django2.1在18年12月停止支持5.5了，只能使用更高版本的mysql 行吧，开始升级mysql吧。 由于我使用的是phpstudy">
+<meta name="twitter:image" content="http://luqianchid.github.io/.io//%5Cassets%5C1565138460638.png">
   
     <link rel="alternative" href="/atom.xml" title="Alan Blog" type="application/atom+xml">
   
@@ -34,7 +33,7 @@
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+      background: linear-gradient(200deg,#00c3ff, #ffff1c);
     }
   </style>
   
@@ -64,6 +63,8 @@
 			
 				<li><a href="/">主页</a></li>
 	        
+				<li><a href="/categories/easy">随笔</a></li>
+	        
 				<li><a href="/categories/teach">教程</a></li>
 	        
 				<li><a href="/categories/tools">工具</a></li>
@@ -77,6 +78,10 @@
     			
             
     			
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
+    			
+            
+    			
     			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
     			
             
@@ -86,7 +91,7 @@
 				
 					<a class="github" target="_blank" href="https://github.com/luqianchid" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weixin" target="_blank" href="/fengshuo233" title="weixin"><i class="icon-weixin"></i></a>
+					<a class="weixin" target="_blank" href="/avatar/weixin.jpg" title="weixin"><i class="icon-weixin"></i></a>
 		        
 					<a class="mail" target="_blank" href="mailto:luqianchid@163.com" title="mail"><i class="icon-mail"></i></a>
 		        
@@ -120,6 +125,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -127,7 +134,7 @@
 					
 						<a class="github" target="_blank" href="https://github.com/luqianchid" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weixin" target="_blank" href="/fengshuo233" title="weixin"><i class="icon-weixin"></i></a>
+						<a class="weixin" target="_blank" href="/avatar/weixin.jpg" title="weixin"><i class="icon-weixin"></i></a>
 			        
 						<a class="mail" target="_blank" href="mailto:luqianchid@163.com" title="mail"><i class="icon-mail"></i></a>
 			        
@@ -138,11 +145,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/teach">教程</a></li>
+					<li style="width: 25%"><a href="/categories/easy">随笔</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/tools">工具</a></li>
+					<li style="width: 25%"><a href="/categories/teach">教程</a></li>
+		        
+					<li style="width: 25%"><a href="/categories/tools">工具</a></li>
 		        
 				</ul>
 			</nav>
@@ -180,7 +189,7 @@
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>由于django不在支持mysql5.5导致系统在进行表迁移操作时一直会报错</p>
 <p><code>django.db.utils.ProgrammingError: (1064, &quot;You have an error in your SQL synt</code></p>
 <p>查了一下原因</p>
-<p><img src="./images/pasted-1565137946221.png" alt="1565137946221"></p>
+<p>django2.1在18年12月停止支持5.5了，只能使用更高版本的mysql</p>
 <p>行吧，开始升级mysql吧。</p>
 <p>由于我使用的是phpstudy的集成环境，因此升级mysql遇到了一些问题。</p>
 <h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><p>1.下载mysql-5.6的win-64.zip压缩包，这里不建议去官网下载，因为实在是<strong>太慢了</strong></p>
@@ -261,57 +270,6 @@
       
 
       
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://luqianchid.github.io/2019/08/07/mysql5-5升级5-6遇到的问题/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
       <div class="clearfix"></div>
     </div>
   </div>
@@ -350,6 +308,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#开始"><span class="toc-number">2.</span> <span class="toc-text">开始</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ps"><span class="toc-number">2.1.</span> <span class="toc-text">ps</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -391,7 +362,7 @@
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
-		open_in_new: false,
+		open_in_new: true,
 		toc_hide_index: true,
 		root: "/",
 		innerArchive: true,
@@ -418,17 +389,25 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
       
     
+      
+      
+      
+    
     
 
     <ul style="width: 70%">
     
     
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
+      
+        
+      
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
@@ -457,6 +436,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">phpstudy</a>
               </li>
              
@@ -469,15 +452,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">django</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
             
             <div class="clearfix"></div>
@@ -524,11 +507,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
 
     
+    	<section class="tools-section tools-section-friends" q-show="friends">
+  		
+        <ul class="search-ul">
+          
+            <li class="search-li">
+              <a href="http://xiaoqc.cn/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>xiaoqc</a>
+            </li>
+          
+        </ul>
+  		
+    	</section>
+    
 
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">联系我&lt;br/&gt;luqianchid@gmail.com&lt;br/&gt;luqianchid@163.com</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">联系我&lt;br/&gt;luqianchid@gmail.com&lt;br/&gt;18538069957@163.com</div>
   	  	
     	</section>
     

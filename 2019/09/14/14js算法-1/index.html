@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://luqianchid.github.io">
-  <title>tools | Alan Blog</title>
+  <title>9-14js算法 | Alan Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="tools">
-<meta name="keywords" content="blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="tools">
-<meta property="og:url" content="http://luqianchid.github.io/tools/index.html">
+  <meta name="description" content="判断一个单词是否回文1234function (str)&amp;#123;	return str === str.split(&apos;&apos;).reverse().join(&apos;&apos;)&amp;#125;// 分隔字符串，反转列表，组合列表元素  数组去重12345function (arr)&amp;#123;		return [...new Set(arr)]&amp;#125;// ...是es6的扩展运算符，取出参数对象中的所有可遍">
+<meta name="keywords" content="js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="9-14js算法">
+<meta property="og:url" content="http://luqianchid.github.io/2019/09/14/14js算法-1/index.html">
 <meta property="og:site_name" content="Alan Blog">
-<meta property="og:description" content="tools">
+<meta property="og:description" content="判断一个单词是否回文1234function (str)&amp;#123;	return str === str.split(&apos;&apos;).reverse().join(&apos;&apos;)&amp;#125;// 分隔字符串，反转列表，组合列表元素  数组去重12345function (arr)&amp;#123;		return [...new Set(arr)]&amp;#125;// ...是es6的扩展运算符，取出参数对象中的所有可遍">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-26T16:01:13.261Z">
+<meta property="og:updated_time" content="2019-09-14T09:45:54.517Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tools">
-<meta name="twitter:description" content="tools">
+<meta name="twitter:title" content="9-14js算法">
+<meta name="twitter:description" content="判断一个单词是否回文1234function (str)&amp;#123;	return str === str.split(&apos;&apos;).reverse().join(&apos;&apos;)&amp;#125;// 分隔字符串，反转列表，组合列表元素  数组去重12345function (arr)&amp;#123;		return [...new Set(arr)]&amp;#125;// ...是es6的扩展运算符，取出参数对象中的所有可遍">
   
     <link rel="alternative" href="/atom.xml" title="Alan Blog" type="application/atom+xml">
   
@@ -163,27 +163,31 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-14js算法-1" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      tools
+      9-14js算法
     </h1>
   
 
         
-        <a href="/tools/index.html" class="archive-article-date">
-  	<time datetime="2019-07-26T15:50:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-26</time>
+        <a href="/2019/09/14/14js算法-1/" class="archive-article-date">
+  	<time datetime="2019-09-14T04:58:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-14</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="tools"><a href="#tools" class="headerlink" title="tools"></a>tools</h2>
+        <h3 id="判断一个单词是否回文"><a href="#判断一个单词是否回文" class="headerlink" title="判断一个单词是否回文"></a>判断一个单词是否回文</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> (<span class="params">str</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> str === str.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 分隔字符串，反转列表，组合列表元素</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> (<span class="params">arr</span>)</span>&#123;	</span><br><span class="line">	<span class="keyword">return</span> [...new <span class="built_in">Set</span>(arr)]</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// ...是es6的扩展运算符，取出参数对象中的所有可遍历属性，拷贝到当前对象之中</span></span><br><span class="line"><span class="comment">// set 用于去除重复项</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="数组中差值最大的两个元素"><a href="#数组中差值最大的两个元素" class="headerlink" title="数组中差值最大的两个元素"></a>数组中差值最大的两个元素</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> (<span class="params">arr</span>) </span>&#123;</span><br><span class="line">   arr.sort()</span><br><span class="line">   <span class="comment">// 默认升序</span></span><br><span class="line">   min = arr[<span class="number">0</span>]</span><br><span class="line">   max = arr[arr.length<span class="number">-1</span>]</span><br><span class="line">   <span class="keyword">return</span> max, min</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -191,7 +195,29 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			
+        		<li class="article-tag-list-item">
+        			<a href="/categories/teach/" class="article-tag-list-link color1">teach</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -202,6 +228,25 @@
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2019/09/14/s-算法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          简单算法题目
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/09/10/美食频道233/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">美食频道233</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -223,7 +268,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#tools"><span class="toc-number">1.</span> <span class="toc-text">tools</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#判断一个单词是否回文"><span class="toc-number">1.</span> <span class="toc-text">判断一个单词是否回文</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组去重"><span class="toc-number">2.</span> <span class="toc-text">数组去重</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组中差值最大的两个元素"><span class="toc-number">3.</span> <span class="toc-text">数组中差值最大的两个元素</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -265,7 +310,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

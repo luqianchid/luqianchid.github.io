@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://luqianchid.github.io">
   <title>Vue使用心得1--词云小项目中踩到的坑 | Alan Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="引言最近在尝试做一个词云小项目，项目构成非常简单，一个提交模块，一个列表展示模块。结构很简单，但是对于 咸鱼来说还是毫无防备的踩进了坑里。== 跨域问题引入axios后设置 123Axios.defaults.withCredentials = trueAxios.defaults.headers[&amp;apos;Content-Type&amp;apos;] = &amp;apos;application/x-ww">
+  <meta name="description" content="引言最近在尝试做一个词云小项目，项目构成非常简单，一个提交模块，一个列表展示模块。结构很简单，但是对于 咸鱼来说还是毫无防备的踩进了坑里。== 跨域问题引入axios后设置 123Axios.defaults.withCredentials = trueAxios.defaults.headers[&apos;Content-Type&apos;] = &apos;application/x-www-form-urlencod">
 <meta name="keywords" content="Vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue使用心得1--词云小项目中踩到的坑">
 <meta property="og:url" content="http://luqianchid.github.io/2019/08/25/Vue使用心得1-词云小项目中踩到的坑/index.html">
 <meta property="og:site_name" content="Alan Blog">
-<meta property="og:description" content="引言最近在尝试做一个词云小项目，项目构成非常简单，一个提交模块，一个列表展示模块。结构很简单，但是对于 咸鱼来说还是毫无防备的踩进了坑里。== 跨域问题引入axios后设置 123Axios.defaults.withCredentials = trueAxios.defaults.headers[&amp;apos;Content-Type&amp;apos;] = &amp;apos;application/x-ww">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-09-10T10:32:40.832Z">
+<meta property="og:description" content="引言最近在尝试做一个词云小项目，项目构成非常简单，一个提交模块，一个列表展示模块。结构很简单，但是对于 咸鱼来说还是毫无防备的踩进了坑里。== 跨域问题引入axios后设置 123Axios.defaults.withCredentials = trueAxios.defaults.headers[&apos;Content-Type&apos;] = &apos;application/x-www-form-urlencod">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-14T09:45:26.258Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue使用心得1--词云小项目中踩到的坑">
-<meta name="twitter:description" content="引言最近在尝试做一个词云小项目，项目构成非常简单，一个提交模块，一个列表展示模块。结构很简单，但是对于 咸鱼来说还是毫无防备的踩进了坑里。== 跨域问题引入axios后设置 123Axios.defaults.withCredentials = trueAxios.defaults.headers[&amp;apos;Content-Type&amp;apos;] = &amp;apos;application/x-ww">
+<meta name="twitter:description" content="引言最近在尝试做一个词云小项目，项目构成非常简单，一个提交模块，一个列表展示模块。结构很简单，但是对于 咸鱼来说还是毫无防备的踩进了坑里。== 跨域问题引入axios后设置 123Axios.defaults.withCredentials = trueAxios.defaults.headers[&apos;Content-Type&apos;] = &apos;application/x-www-form-urlencod">
   
     <link rel="alternative" href="/atom.xml" title="Alan Blog" type="application/atom+xml">
   
@@ -30,7 +30,7 @@
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+      background: linear-gradient(200deg,#00c3ff, #ffff1c);
     }
   </style>
   
@@ -60,6 +60,8 @@
 			
 				<li><a href="/">主页</a></li>
 	        
+				<li><a href="/categories/easy">随笔</a></li>
+	        
 				<li><a href="/categories/teach">教程</a></li>
 	        
 				<li><a href="/categories/tools">工具</a></li>
@@ -73,6 +75,10 @@
     			
             
     			
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
+    			
+            
+    			
     			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
     			
             
@@ -82,7 +88,7 @@
 				
 					<a class="github" target="_blank" href="https://github.com/luqianchid" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weixin" target="_blank" href="/fengshuo233" title="weixin"><i class="icon-weixin"></i></a>
+					<a class="weixin" target="_blank" href="/avatar/weixin.jpg" title="weixin"><i class="icon-weixin"></i></a>
 		        
 					<a class="mail" target="_blank" href="mailto:luqianchid@163.com" title="mail"><i class="icon-mail"></i></a>
 		        
@@ -116,6 +122,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -123,7 +131,7 @@
 					
 						<a class="github" target="_blank" href="https://github.com/luqianchid" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weixin" target="_blank" href="/fengshuo233" title="weixin"><i class="icon-weixin"></i></a>
+						<a class="weixin" target="_blank" href="/avatar/weixin.jpg" title="weixin"><i class="icon-weixin"></i></a>
 			        
 						<a class="mail" target="_blank" href="mailto:luqianchid@163.com" title="mail"><i class="icon-mail"></i></a>
 			        
@@ -134,11 +142,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/teach">教程</a></li>
+					<li style="width: 25%"><a href="/categories/easy">随笔</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/tools">工具</a></li>
+					<li style="width: 25%"><a href="/categories/teach">教程</a></li>
+		        
+					<li style="width: 25%"><a href="/categories/tools">工具</a></li>
 		        
 				</ul>
 			</nav>
@@ -175,26 +185,26 @@
       
         <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>最近在尝试做一个词云小项目，项目构成非常简单，一个提交模块，一个列表展示模块。结构很简单，但是对于 咸鱼来说还是毫无防备的踩进了坑里。==</p>
 <h2 id="跨域问题"><a href="#跨域问题" class="headerlink" title="跨域问题"></a>跨域问题</h2><p>引入axios后设置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Axios.defaults.withCredentials = true</span><br><span class="line"></span><br><span class="line">Axios.defaults.headers[&apos;Content-Type&apos;] = &apos;application/x-www-form-urlencoded&apos;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Axios.defaults.withCredentials = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">Axios.defaults.headers[<span class="string">'Content-Type'</span>] = <span class="string">'application/x-www-form-urlencoded'</span></span><br></pre></td></tr></table></figure>
 
 <p>默认的header是application/json。注意这是前端方面的，后端的跨域设置要根据框架进行调整。</p>
 <p>然后安装qs</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install qs --save</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install qs --save</span><br></pre></td></tr></table></figure>
 
 <p>在进行post请求时对data对象进行处理  qs.stringify(data).</p>
 <p>如果觉得这种方式每次都要引入比较麻烦，就对axios进行一次封装，设置拦截器，对post请求进行拦截，处理data格式。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">axios.interceptors.request.use(</span><br><span class="line"></span><br><span class="line">  (config) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">​    if (config.method === &apos;post&apos;) &#123;</span><br><span class="line"></span><br><span class="line">​      config.data = qs.stringify(config.data)</span><br><span class="line"></span><br><span class="line">​    &#125;</span><br><span class="line"></span><br><span class="line">​    return config</span><br><span class="line"></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  (error) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">​    return Promise.reject(error)</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">axios.interceptors.request.use(</span><br><span class="line"></span><br><span class="line">  (config) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">​    <span class="keyword">if</span> (config.method === <span class="string">'post'</span>) &#123;</span><br><span class="line"></span><br><span class="line">​      config.data = qs.stringify(config.data)</span><br><span class="line"></span><br><span class="line">​    &#125;</span><br><span class="line"></span><br><span class="line">​    <span class="keyword">return</span> config</span><br><span class="line"></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  (error) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">​    <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(error)</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 
 <h2 id="非父子组件（兄弟组件传值）"><a href="#非父子组件（兄弟组件传值）" class="headerlink" title="非父子组件（兄弟组件传值）"></a>非父子组件（兄弟组件传值）</h2><p>设A，B两个组件之间要进行通信，A完成某个动作后触发B中的数据更新。</p>
 <p>新建一个Bus.js</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &apos;vue&apos;</span><br><span class="line"></span><br><span class="line">export default new Vue()</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Vue()</span><br></pre></td></tr></table></figure>
 
 <p>在AB组件中分别引入Bus.js</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import Bus from &apos;youpath/Bus&apos;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Bus <span class="keyword">from</span> <span class="string">'youpath/Bus'</span></span><br></pre></td></tr></table></figure>
 
 <p>例如我需要在A组件中提交完数据后触发B组件中列表刷新</p>
 <p>在A中的submit方法中写入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Bus.$emit(&apos;initList&apos;, value) // 这个value可以是你想传递给B的任何值</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Bus.$emit(<span class="string">'initList'</span>, value) <span class="comment">// 这个value可以是你想传递给B的任何值</span></span><br></pre></td></tr></table></figure>
 
 <p>在B中的mounted生命周期中写入：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Bus.$on(&apos;initList&apos;, （val) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">​	this.refresh() // 我的刷新列表命令</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">beforeDestroy () &#123;</span><br><span class="line"></span><br><span class="line">​    Bus.$off(&apos;refresh&apos;) // 移除事件监听</span><br><span class="line"></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
@@ -215,7 +225,7 @@
 </li>
 </ul>
 <h2 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h2><p>如何一起提交上传的文件以及表单元素？如果是原生html很好处理，但是既然用了框架，总不能没有办法解决这个问题吧？此时就需要用到formData 了，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">data （）  &#123;</span><br><span class="line"></span><br><span class="line">​	return &#123;</span><br><span class="line"></span><br><span class="line">​		...</span><br><span class="line"></span><br><span class="line">​		formData : new FormData(),</span><br><span class="line"></span><br><span class="line">​		...	</span><br><span class="line"></span><br><span class="line">​	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">data （）  &#123;</span><br><span class="line"></span><br><span class="line">​	<span class="keyword">return</span> &#123;</span><br><span class="line"></span><br><span class="line">​		...</span><br><span class="line"></span><br><span class="line">​		formData : <span class="keyword">new</span> FormData(),</span><br><span class="line"></span><br><span class="line">​		...	</span><br><span class="line"></span><br><span class="line">​	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>使用el-upload的组件before-upload属性，绑定fafa</p>
 <p>:before-upload=”beforeUpload”</p>
@@ -255,57 +265,6 @@
       
 
       
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://luqianchid.github.io/2019/08/25/Vue使用心得1-词云小项目中踩到的坑/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
       <div class="clearfix"></div>
     </div>
   </div>
@@ -344,6 +303,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#引言"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#跨域问题"><span class="toc-number">1.1.</span> <span class="toc-text">跨域问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#非父子组件（兄弟组件传值）"><span class="toc-number">1.2.</span> <span class="toc-text">非父子组件（兄弟组件传值）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件上传"><span class="toc-number">1.3.</span> <span class="toc-text">文件上传</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -385,7 +357,7 @@
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
-		open_in_new: false,
+		open_in_new: true,
 		toc_hide_index: true,
 		root: "/",
 		innerArchive: true,
@@ -412,17 +384,25 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
       
     
+      
+      
+      
+    
     
 
     <ul style="width: 70%">
     
     
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
+      
+        
+      
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
@@ -451,6 +431,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">phpstudy</a>
               </li>
              
@@ -463,15 +447,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">django</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
             
             <div class="clearfix"></div>
@@ -518,11 +502,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
 
     
+    	<section class="tools-section tools-section-friends" q-show="friends">
+  		
+        <ul class="search-ul">
+          
+            <li class="search-li">
+              <a href="http://xiaoqc.cn/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>xiaoqc</a>
+            </li>
+          
+        </ul>
+  		
+    	</section>
+    
 
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">联系我&lt;br/&gt;luqianchid@gmail.com&lt;br/&gt;luqianchid@163.com</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">联系我&lt;br/&gt;luqianchid@gmail.com&lt;br/&gt;18538069957@163.com</div>
   	  	
     	</section>
     

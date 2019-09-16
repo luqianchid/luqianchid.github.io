@@ -9,12 +9,13 @@
   <title>【长期更新】一些好用的工具 | Alan Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="镜像相关1234# mysql 国内镜像下载 告别官网的蜗牛速度http://mirrors.ustc.edu.cn/mysql-ftp/Downloads/MySQL-5.6/# ubuntu 阿里云镜像下载http://mirrors.aliyun.com/ubuntu-releases/">
+<meta name="keywords" content="blog">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【长期更新】一些好用的工具">
 <meta property="og:url" content="http://luqianchid.github.io/2019/09/10/长期更新】一些好用的工具-1/index.html">
 <meta property="og:site_name" content="Alan Blog">
 <meta property="og:description" content="镜像相关1234# mysql 国内镜像下载 告别官网的蜗牛速度http://mirrors.ustc.edu.cn/mysql-ftp/Downloads/MySQL-5.6/# ubuntu 阿里云镜像下载http://mirrors.aliyun.com/ubuntu-releases/">
-<meta property="og:locale" content="default">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-09-10T10:09:12.331Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【长期更新】一些好用的工具">
@@ -29,7 +30,7 @@
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+      background: linear-gradient(200deg,#00c3ff, #ffff1c);
     }
   </style>
   
@@ -59,6 +60,8 @@
 			
 				<li><a href="/">主页</a></li>
 	        
+				<li><a href="/categories/easy">随笔</a></li>
+	        
 				<li><a href="/categories/teach">教程</a></li>
 	        
 				<li><a href="/categories/tools">工具</a></li>
@@ -72,6 +75,10 @@
     			
             
     			
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
+    			
+            
+    			
     			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
     			
             
@@ -81,7 +88,7 @@
 				
 					<a class="github" target="_blank" href="https://github.com/luqianchid" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weixin" target="_blank" href="/fengshuo233" title="weixin"><i class="icon-weixin"></i></a>
+					<a class="weixin" target="_blank" href="/avatar/weixin.jpg" title="weixin"><i class="icon-weixin"></i></a>
 		        
 					<a class="mail" target="_blank" href="mailto:luqianchid@163.com" title="mail"><i class="icon-mail"></i></a>
 		        
@@ -115,6 +122,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -122,7 +131,7 @@
 					
 						<a class="github" target="_blank" href="https://github.com/luqianchid" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weixin" target="_blank" href="/fengshuo233" title="weixin"><i class="icon-weixin"></i></a>
+						<a class="weixin" target="_blank" href="/avatar/weixin.jpg" title="weixin"><i class="icon-weixin"></i></a>
 			        
 						<a class="mail" target="_blank" href="mailto:luqianchid@163.com" title="mail"><i class="icon-mail"></i></a>
 			        
@@ -133,11 +142,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/teach">教程</a></li>
+					<li style="width: 25%"><a href="/categories/easy">随笔</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/tools">工具</a></li>
+					<li style="width: 25%"><a href="/categories/teach">教程</a></li>
+		        
+					<li style="width: 25%"><a href="/categories/tools">工具</a></li>
 		        
 				</ul>
 			</nav>
@@ -196,57 +207,6 @@
       
 
       
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://luqianchid.github.io/2019/09/10/长期更新】一些好用的工具-1/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
       <div class="clearfix"></div>
     </div>
   </div>
@@ -285,6 +245,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#镜像相关"><span class="toc-number">1.</span> <span class="toc-text">镜像相关</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -326,7 +299,7 @@
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
-		open_in_new: false,
+		open_in_new: true,
 		toc_hide_index: true,
 		root: "/",
 		innerArchive: true,
@@ -353,17 +326,25 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
       
     
+      
+      
+      
+    
     
 
     <ul style="width: 70%">
     
     
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
+      
+        
+      
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
@@ -392,6 +373,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">phpstudy</a>
               </li>
              
@@ -404,15 +389,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">django</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
             
             <div class="clearfix"></div>
@@ -459,11 +444,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
 
     
+    	<section class="tools-section tools-section-friends" q-show="friends">
+  		
+        <ul class="search-ul">
+          
+            <li class="search-li">
+              <a href="http://xiaoqc.cn/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>xiaoqc</a>
+            </li>
+          
+        </ul>
+  		
+    	</section>
+    
 
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">联系我&lt;br/&gt;luqianchid@gmail.com&lt;br/&gt;luqianchid@163.com</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">联系我&lt;br/&gt;luqianchid@gmail.com&lt;br/&gt;18538069957@163.com</div>
   	  	
     	</section>
     
